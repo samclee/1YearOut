@@ -23,6 +23,7 @@ local selection_fns = {
 }
 
 function state:enter()
+  lg.setBackgroundColor(pal[1])
   cnv = love.graphics.newCanvas(64,64)
   cnv:setFilter('nearest', 'nearest')
 end
@@ -31,10 +32,9 @@ function state:draw()
 love.graphics.setCanvas(cnv)
 love.graphics.clear()
   
-  lg.print('start', base_x, base_y, 0, 0.1, 0.1)
-  lg.print('credits', base_x, base_y +  spacing, 0, 0.1, 0.1)
-  lg.print('options', base_x, base_y + 2 * spacing, 0, 0.1, 0.1)
-  lg.print('exit', base_x, base_y + 3 * spacing, 0, 0.1, 0.1)
+  lg.setColor(pal[4])
+  lg.print('start\ncredits\noptions\nexit', base_x, base_y, 0, 0.1, 0.1)
+
   lg.print('*', base_x - 4, base_y + (selection - 1) * spacing, 0, 0.1, 0.1)
 
 love.graphics.setCanvas()

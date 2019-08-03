@@ -30,10 +30,32 @@ vec = require 'libs.vector'
 
 clrs = {
         red = {1, 0, 0},
-        grn = {0, 1, 0},
-        blu = {0, 0, 1},
-        wht = {1, 1, 1}
+        green = {0, 1, 0},
+        blue = {0, 0, 1},
+        white = {1, 1, 1},
       }
+
+local function hexToDec(h)
+  local clr = {}
+  for i = 2, 6, 2 do
+    local hex_num = h:sub(i, i + 1)
+    local clr_val = tonumber(hex_num, 16) / 255
+    add(clr, clr_val)
+  end
+
+  return clr
+end
+
+pal = {
+  '#eefded',
+  '#9a7bbc',
+  '#2d757e',
+  '#001b2e'
+}
+
+for i = 1, #pal do
+  pal[i] = hexToDec(pal[i])
+end
 
 -- collisions
 bump = require 'libs.bump'
@@ -82,15 +104,7 @@ dlog = require 'libs.dlog'
 f = {}
 shk = require 'libs.shack'
 
-colors = {
-    orange = {1, 0.553, 0},
-    aqua = {0.353, 1, .929},
-    white = {1, 1, 1},
-    black = {0, 0, 0},
-    red = {0.937, 0.263, 0.263},
-    green = {0.263, 0.937, 0.263},
-    blue = {0.263, 0.263, 0.937}
-}
+
 
 -- logic
 function gather_convs(tn)

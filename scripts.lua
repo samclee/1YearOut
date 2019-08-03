@@ -35,14 +35,14 @@ end
 scripts.c = function()
   ret_cmds({to_destroy = {'e'}})
   msg 'Do you mean to tell me...'
-  msg 'The <red>murderer<wht>...'
+  msg 'The <red>murderer<white>...'
   shk(true)
-  msg 'was <red>me<wht>?!?!'
+  msg 'was <red>me<white>?!?!'
 end
 
 scripts.d = function()
   ret_cmds({conv_name = 'ret2'})
-  msg 'Start <red>ano<wht>ther <red>after.'
+  msg 'Start <red>ano<white>ther <red>after.'
 end
 
 scripts.ret2 = function()
@@ -68,7 +68,7 @@ scripts.warpguy = function()
 end
 
 scripts.exitguy1 = function()
-  msg 'I\'ll take you <grn>back<wht> when you get enough <blu>points<wht>.'
+  msg 'I\'ll take you <green>back<white> when <blue>points<white>.'
 end
 
 scripts.exitguy2 = function()

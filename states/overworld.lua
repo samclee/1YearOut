@@ -160,7 +160,7 @@ function state:keypressed(k)
   if not taking_input then return end
   if k == 'z' then
     local cx, cy = plr.x + 4 + plr.facing.x * 10, plr.y + 4 + plr.facing.y * 10
-    local items, len = self.wld:queryPoint(cx, cy)
+    local items, len = self.wld:queryRect(cx-4, cy-4,8,8)
 
     for i = 1, len do
       if items[i].active then
