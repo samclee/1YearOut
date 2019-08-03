@@ -2,7 +2,7 @@
 
 local state = {}
 local cnv = nil
-local base_y, base_x, spacing = 36, 9, 6
+local base_y, base_x, spacing= 42, 9, 6
 local selection = 1
 local selection_fns = {
   function()
@@ -10,22 +10,26 @@ local selection_fns = {
   end,
 
   function()
-    
-  end,
-
-  function()
-
+    gs.push(s.credits, {final = false})
   end,
 
   function()
     le.quit()
   end
 }
+local cover = {o = 0}
 
 function state:enter()
   lg.setBackgroundColor(pal[1])
   cnv = love.graphics.newCanvas(64,64)
   cnv:setFilter('nearest', 'nearest')
+
+  selection = 1
+  cover = {o = 0}
+end
+
+function state:resume()
+  lg.setBackgroundColor(pal[1])
 end
 
 function state:draw()
@@ -33,9 +37,12 @@ love.graphics.setCanvas(cnv)
 love.graphics.clear()
   
   lg.setColor(pal[4])
-  lg.print('start\ncredits\noptions\nexit', base_x, base_y, 0, 0.1, 0.1)
+  lg.print('start\ncredits\nexit', base_x, base_y, 0, 0.1, 0.1)
 
   lg.print('*', base_x - 4, base_y + (selection - 1) * spacing, 0, 0.1, 0.1)
+
+  local c = {pal[4][1], pal[4][2], pal[4][3], cover.o}
+  rectfill(0, 0, 64, 64, c)
 
 love.graphics.setCanvas()
 love.graphics.draw(cnv, 0, 0, 0, 10, 10)
@@ -47,12 +54,18 @@ end
 
 function state:keypressed(k)
   if k == 'up' then
-    selection = selection - 1
-    if selection == 0 then selection = 4 end
+    selection = math.max(selection-1, 1)
+    sfx.menu:play({volume=1})
   elseif k == 'down' then
-    selection = (selection % 4) + 1
+    selection = math.min(selection+1, 3)
+    sfx.menu:play({volume=1})
   elseif k == 'z' then
-    selection_fns[selection]()
+    sfx.select:play({volume=1})
+    if selection == 1 then
+      ti.tween(.5, cover, {o = 1}, 'out-cubic', function() selection_fns[selection]() end)
+    else
+      selection_fns[selection]()
+    end
   end
 end
 

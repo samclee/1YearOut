@@ -106,6 +106,10 @@ end
 
 function dlog:add_next_char()
   local last_ind = #self.cur_msg
+  if self.msg[last_ind + 2] ~= ' ' then
+    sfx.talk:play{volume = 0.2}
+  end
+
   add(self.cur_msg, self.msg[last_ind + 1])
   add(self.cur_msg, self.msg[last_ind + 2])
 end

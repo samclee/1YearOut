@@ -67,6 +67,20 @@ setmetatable(_G, {
   __index = require('libs.cargo').init('/')
 })
 
+-- audio
+rpl = require 'libs.ripple'
+sfx = {
+  talk = rpl.newSound(sounds.move4),
+  warp = rpl.newSound(sounds.powerup16),
+  menu = rpl.newSound(sounds.move1),
+  select = rpl.newSound(sounds.interaction13),
+
+}
+
+bgm = {
+
+}
+
 -- animations
 a8 = require 'libs.anim8'
 an = {}
@@ -103,7 +117,6 @@ end
 dlog = require 'libs.dlog'
 f = {}
 shk = require 'libs.shack'
-
 
 
 -- logic

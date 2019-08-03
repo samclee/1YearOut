@@ -8,6 +8,7 @@ function Exit:initialize(p)
   self.h = p.h
   self.conv_names = p.conv_names
   self.spr = sprites[p.spr_name]
+  self.active = true
 
   -- hard code
   self.name = 'Exit'
@@ -18,9 +19,6 @@ function Exit:draw()
   lg.draw(self.spr, self.x, self.y)
 end
 
-function Exit:set_active(a)
-  self.active = a
-end
 
 function Exit:act(done)
   -- Exits just say something

@@ -9,7 +9,7 @@ local cover = {r = 0}
 local taking_input = true
 
 local plr = nil
-local signs = {}
+local objs = {}
 
 function state:enter(from)
   print('\n----------------------\nGAME START\n----------------------\nEntering Overworld')
@@ -29,7 +29,7 @@ function state:enter(from)
 
   -- create objects from map
   plr = nil
-  signs = {}
+  objs = {}
   for i, obj in pairs(self.map.objects) do
     -- Player obj
     if obj.name == 'Player' then
@@ -46,8 +46,8 @@ function state:enter(from)
                                   conv_names = conv_names,
                                   spr_name = spr_name
                                 })
-      signs[tn] = new_sign
-      self.wld:add(signs[tn], signs[tn].x, signs[tn].y, signs[tn].w, signs[tn].h)
+      objs[tn] = new_sign
+      self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
 
       print('\tcreated sign: \'' .. tn .. '\'')
     end
@@ -77,10 +77,10 @@ function state:resume(from, ret_cmds)
   end
 
   -- When the player returns from a state... (probably conversation)
-  -- ...deactivate listed Signs
+  -- ...deactivate listed objs
   if ret_cmds.to_destroy then
     for _,name in pairs(ret_cmds.to_destroy) do
-      signs[name]:set_active(false)
+      objs[name]:set_active(false)
       print('\tdestroyed: \'' .. name .. '\'')
     end
   end
@@ -88,7 +88,7 @@ function state:resume(from, ret_cmds)
   -- ...change mode of another sign
   if ret_cmds.to_set_mode then
     for name, mode in pairs(ret_cmds.to_set_mode) do
-      signs[name]:set_mode(mode)
+      objs[name]:set_mode(mode)
       print('\tset: \'' .. name .. '\' to mode: [' .. tostring(mode) .. ']')
     end
   end
@@ -96,7 +96,11 @@ function state:resume(from, ret_cmds)
   -- ...move to dungeon state
   if ret_cmds.dungeon_name then
     taking_input = false
-    ti.tween(0.6, cover, {r = 90}, 'in-quart', function() gs.push(states.dungeon, {map_name = ret_cmds.dungeon_name}) end)
+    sfx.warp:play({volume = 0.2})
+    ti.tween(0.6, cover, {r = 90}, 'in-quart', 
+      function()
+        gs.push(states.dungeon, {map_name = ret_cmds.dungeon_name}) 
+      end)
   end
 end
 
@@ -118,15 +122,13 @@ love.graphics.clear()
   lg.push()
   lg.translate(-64 * cam.x, -64 * cam.y)
 
-  -- draw player and signs
-  foreach(signs, function(s) s:draw() end)
+  -- draw player and objs
+  foreach(objs, function(s) s:draw() end)
   plr:draw()
 
   lg.pop()
 
-  lg.setColor(1,1,1)
-  lg.ellipse('fill',32,32,cover.r)
-
+  circfill(32,32,cover.r,pal[4])
 
 love.graphics.setCanvas()
 love.graphics.draw(cnv, 0, 0, 0, 10, 10)
@@ -153,6 +155,7 @@ function state:update(dt)
 
   plr.x, plr.y = self.wld:move(plr, plr.x + dx * plr.spd, plr.y + dy * plr.spd, plr.filter)
   plr.moving = dx ~= 0 or dy ~= 0
+
   plr:update(dt)
 end
 

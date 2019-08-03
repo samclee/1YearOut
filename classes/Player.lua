@@ -17,7 +17,7 @@ function Player:initialize(p)
   self.moving = false
 
   self.filter = function(item, other)
-    if other.name == 'Sign' and other.active == false then
+    if other.active == false then
       return 'cross'
     end
     return 'slide'

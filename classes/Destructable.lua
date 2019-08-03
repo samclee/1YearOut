@@ -6,6 +6,8 @@ function Destructable:initialize(p)
   self.cur_spr = sprites[p.active]
   self.destroyed = sprites[p.destroyed]
   -- should have active and inactive sprites
+
+  self.name = 'Destructable'
 end
 
 function Destructable:act(cur_char)

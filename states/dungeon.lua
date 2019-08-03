@@ -10,7 +10,7 @@ local cover = {r = 90}
 local taking_input = true
 
 local plr = nil
-local signs = {}
+local objs = {}
 local cur_plr = 1
 
 function state:enter(from, p)
@@ -31,7 +31,7 @@ function state:enter(from, p)
   cover.r = 90
   taking_input = true
   plr = nil
-  signs = {}
+  objs = {}
   cur_plr = 1
   ti.tween(0.4, cover, {r = 0}, 'linear')
 
@@ -53,8 +53,8 @@ function state:enter(from, p)
                                   conv_names = conv_names,
                                   spr_name = spr_name
                                 })
-      signs[tn] = new_sign
-      self.wld:add(signs[tn], signs[tn].x, signs[tn].y, signs[tn].w, signs[tn].h)
+      objs[tn] = new_sign
+      self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
 
       print('\tcreated sign: \'' .. tn .. '\'')
     -- Destructable (Sign) obj
@@ -69,8 +69,8 @@ function state:enter(from, p)
                                         active = obj.properties.active,
                                         destroyed = obj.properties.destroyed
                                       })
-      signs[tn] = new_des
-      self.wld:add(signs[tn], signs[tn].x, signs[tn].y, signs[tn].w, signs[tn].h)
+      objs[tn] = new_des
+      self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
 
       print('\tcreated destructable: \'' .. tn .. '\'')
     -- Exit obj
@@ -84,8 +84,8 @@ function state:enter(from, p)
                                   conv_names = conv_names,
                                   spr_name = spr_name
                                   })
-      signs[tn] = new_exit
-      self.wld:add(signs[tn], signs[tn].x, signs[tn].y, signs[tn].w, signs[tn].h)
+      objs[tn] = new_exit
+      self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
 
       print('\tcreated exit: \'' .. tn .. '\'')
     end
@@ -102,11 +102,11 @@ function state:resume(from, ret_cmds)
   end
 
   -- When the player returns from a state... (probably conversation)
-  -- ...deactivate listed Signs
+  -- ...deactivate listed objs
   if ret_cmds.to_destroy then
     for _,name in pairs(ret_cmds.to_destroy) do
       print('Will call destroy from ' .. name)
-      signs[name]:set_active(false)
+      objs[name]:set_active(false)
     end
   end
 
@@ -114,7 +114,7 @@ function state:resume(from, ret_cmds)
   if ret_cmds.to_set_mode then
     for name, mode in pairs(ret_cmds.to_set_mode) do
       print('Will set ' .. name .. ' to mode ' .. mode)
-      signs[name]:set_mode(mode)
+      objs[name]:set_mode(mode)
     end
   end
 
@@ -132,6 +132,7 @@ function state:resume(from, ret_cmds)
   -- ...return to overworld and supply these ret_cmds
   if ret_cmds.pop_cmds then
     taking_input = false
+    sfx.warp:play({volume = 0.2})
     ret_cmds.pop_cmds.from_dungeon = true
     ti.tween(0.4, cover, {r = 90}, 'in-quart', function() gs.pop(ret_cmds.pop_cmds) end)
   end
@@ -155,13 +156,12 @@ love.graphics.clear()
   lg.translate(-64 * cam.x, -64 * cam.y)
 
   -- draw player
-  foreach(signs, function(s) s:draw() end)
+  foreach(objs, function(s) s:draw() end)
   plr:draw()
 
   lg.pop()
 
-  lg.setColor(1,1,1)
-  lg.ellipse('fill',32,32,cover.r)
+  circfill(32,32,cover.r,pal[4])
 
 love.graphics.setCanvas()
 love.graphics.draw(cnv, 0, 0, 0, 10, 10)
@@ -195,10 +195,12 @@ function state:keypressed(k)
   if not taking_input then return end
   if k == 'z' then
     local cx, cy = plr.x + 4 + plr.facing.x * 10, plr.y + 4 + plr.facing.y * 10
-    local items, len = self.wld:queryPoint(cx, cy)
+    local items, len = self.wld:queryRect(cx-4, cy-4,8,8)
 
     for i = 1, len do
-      if items[i].name == 'Sign' and items[i].active then
+      if items[i].active and items[i].name == 'Sign' then
+        items[i]:act()
+      elseif items[i].active and items[i].name == 'Destructable' then
         items[i]:act(cur_plr)
       elseif items[i].name == 'Exit' then
         local done = (defeated >= goal)
