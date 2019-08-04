@@ -12,6 +12,10 @@ function state:enter(from, p)-- visuals
   lg.setBackgroundColor(pal[4])
   self.final = p.final
 
+  if self.final then
+    bgm.credits:play()
+  end
+
   y = 70
   credits_txt = [[
 Programming
@@ -27,7 +31,7 @@ Art
 end
 
 function state:update(dt)
-  y = y - 0.1
+  y = y - 0.05
 end
 
 function state:draw()

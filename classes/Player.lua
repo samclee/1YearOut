@@ -13,7 +13,7 @@ function Player:initialize(p)
   self.cur_char = 1
   self.idle_anims = {an.a_idle, an.b_idle, an.c_idle}
   self.walk_anims = {an.a_walk, an.b_walk, an.c_walk}
-  self.cur_anim = nil
+  self.cur_anim = self.idle_anims[1]
   self.moving = false
 
   self.filter = function(item, other)

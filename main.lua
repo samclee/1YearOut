@@ -48,7 +48,7 @@ end
 
 pal = {
   '#eefded',
-  '#9a7bbc',
+  '#7abeff',
   '#2d757e',
   '#001b2e'
 }
@@ -78,7 +78,7 @@ sfx = {
 }
 
 bgm = {
-
+  credits = music.birch4
 }
 
 -- animations

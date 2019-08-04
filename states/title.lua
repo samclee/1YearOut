@@ -4,6 +4,7 @@ local state = {}
 local cnv = nil
 local base_y, base_x, spacing= 42, 9, 6
 local selection = 1
+local taking_input = true
 local selection_fns = {
   function()
     gs.switch(s.overworld, {map_name = 'testdungeon'})
@@ -26,10 +27,12 @@ function state:enter()
 
   selection = 1
   cover = {o = 0}
+  taking_input = true
 end
 
 function state:resume()
   lg.setBackgroundColor(pal[1])
+  taking_input = true
 end
 
 function state:draw()
@@ -53,6 +56,7 @@ function state:update(dt)
 end
 
 function state:keypressed(k)
+  if not taking_input then return end
   if k == 'up' then
     selection = math.max(selection-1, 1)
     sfx.menu:play({volume=1})
@@ -61,6 +65,7 @@ function state:keypressed(k)
     sfx.menu:play({volume=1})
   elseif k == 'z' then
     sfx.select:play({volume=1})
+    taking_input = false
     if selection == 1 then
       ti.tween(.5, cover, {o = 1}, 'out-cubic', function() selection_fns[selection]() end)
     else

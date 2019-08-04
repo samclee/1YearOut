@@ -12,6 +12,7 @@ end
 dlog.drawBorder = function(self)
 	lg.setLineWidth(1)
 	lg.rectangle('line', self.x, self.y, self.w, self.h)
+  lg.rectangle('line', 16, 8, 32, 32)
 end
 
 dlog.drawChoices = function(self)
@@ -107,7 +108,7 @@ end
 function dlog:add_next_char()
   local last_ind = #self.cur_msg
   if self.msg[last_ind + 2] ~= ' ' then
-    sfx.talk:play{volume = 0.2}
+    sfx.talk:play{volume = 0.5}
   end
 
   add(self.cur_msg, self.msg[last_ind + 1])

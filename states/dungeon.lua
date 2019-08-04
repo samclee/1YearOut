@@ -29,11 +29,11 @@ function state:enter(from, p)
   -- entry logic
   defeated = 0
   cover.r = 90
-  taking_input = true
+  taking_input = false
   plr = nil
   objs = {}
   cur_plr = 1
-  ti.tween(0.4, cover, {r = 0}, 'linear')
+  local entry_conv = nil
 
   -- create objects from map
   for i, obj in pairs(self.map.objects) do
@@ -42,6 +42,7 @@ function state:enter(from, p)
       plr = Player:new({x = obj.x, y = obj.y})
       self.wld:add(plr, plr.x, plr.y, 8, 8)
       goal = obj.properties.goal
+      entry_conv = obj.properties.entry_conv
     -- Sign obj
     elseif obj.name == 'Sign' then
       local tn = obj.properties.true_name
@@ -91,7 +92,16 @@ function state:enter(from, p)
     end
   end -- end create objects
 
+  --self.map:removeLayer('myobjects')
+
   cam.x, cam.y = math.floor((plr.x + 4)/64), math.floor((plr.y + 4)/64)
+
+  -- more entry logic
+  ti.tween(0.4, cover, {r = 0}, 'linear', 
+    function()
+      gs.push(states.conv, entry_conv)
+      taking_input = true 
+    end)
 end
 
 function state:resume(from, ret_cmds)

@@ -4,6 +4,10 @@ scripts.none = function()
   msg 'no script found for true name'
 end
 
+scripts.entryA = function()
+  msg 'Arrived in dungeonA'
+end
+
 
 scripts.a1 = function()
   shk(true)
@@ -63,7 +67,7 @@ scripts.pointgiver = function()
 end
 
 scripts.warpguy = function()
-  ret_cmds({dungeon_name = 'testdungeon'})
+  ret_cmds({dungeon_name = 'dungeonA'})
   msg 'Warping to test dungeon'
 end
 
