@@ -108,7 +108,7 @@ Ero = require 'libs.erogodic'()
 -- gamestates
 gs = require 'libs.gamestate'
 s = {}
-statenames = {'title', 'overworld', 'conv', 'dungeon', 'credits', 'menu1'}
+statenames = {'title', 'overworld', 'conv', 'dungeon', 'credits'}
 for _,n in pairs(statenames) do
   s[n] = require ('states.'.. n)
 end
@@ -121,17 +121,17 @@ shk = require 'libs.shack'
 
 -- logic
 function gather_convs(tn)
-  if tn == nil then return {'none'} end
-
   local cur_conv_names = {}
   if scripts[tn] then
     add(cur_conv_names, tn)
-  else
+  elseif scripts[tn .. '1'] then
     local i = 1
     while scripts[tn .. tostring(i)] do
       add(cur_conv_names, tn .. tostring(i))
       i = i + 1
     end
+  else
+    cur_conv_names = {'none'}
   end
 
   return cur_conv_names

@@ -24,7 +24,7 @@ function state:enter(from)
 
   -- set up physics
   self.wld = bump.newWorld()
-  self.map = sti('maps/testmap.lua', {'bump'})
+  self.map = sti('maps/school.lua', {'bump'})
   self.map:bump_init(self.wld)
 
   -- create objects from map
@@ -36,8 +36,8 @@ function state:enter(from)
       plr = Player:new({x = obj.x, y = obj.y})
       self.wld:add(plr, plr.x, plr.y, 8, 8)
     -- Sign obj
-    elseif obj.name == 'Sign' then
-      local tn = obj.properties.true_name
+    elseif obj.type == 'Sign' then
+      local tn = obj.name
       local spr_name = obj.properties.spr_name
       local conv_names = gather_convs(tn)
 

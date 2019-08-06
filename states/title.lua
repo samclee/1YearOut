@@ -7,7 +7,7 @@ local selection = 1
 local taking_input = true
 local selection_fns = {
   function()
-    gs.switch(s.overworld, {map_name = 'testdungeon'})
+    gs.switch(s.overworld)
   end,
 
   function()

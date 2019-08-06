@@ -11,11 +11,7 @@ function state:enter(from, script_name)
   script = scripts[script_name]
   dialog = Ero(script)
     :defineAttributes({
-      'left_pic',
-      'right_pic',
-      'left_dim',
-      'right_dim',
-      
+      'portrait',
       'ret_cmds',
 
       'shk',

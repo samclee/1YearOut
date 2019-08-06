@@ -17,7 +17,11 @@ function Destructable:act(cur_char)
     self.cur_spr = self.destroyed
   else
     -- if the player is the wrong type, give dialog
-    gs.push(s.conv, self.conv_names[self.mode])
+    if self.type == 2 then
+      gs.push(s.conv, 'ice_obstacle')
+    elseif self.type == 3 then
+      gs.push(s.conv, 'block_obstacle')
+    end
   end
 end
 

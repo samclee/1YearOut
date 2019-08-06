@@ -4,9 +4,82 @@ scripts.none = function()
   msg 'no script found for true name'
 end
 
-scripts.entryA = function()
-  msg 'Arrived in dungeonA'
+-- Overworld
+scripts.charlie1 = function()
+  ret_cmds({dungeon_name = 'dungeonA'})
+  msg 'i am charlie'
+  msg 'going to my dungeon'
 end
+
+scripts.bryan1 = function()
+  ret_cmds({dungeon_name = 'dungeonB'})
+  msg 'i am bryan'
+  msg 'going to my dungeon'
+end
+
+scripts.charlie_complete = function()
+  msg 'helped charlie'
+end
+
+scripts.bryan_complete = function()
+  msg 'helped bryan'
+end
+
+scripts.keyA = function()
+
+end
+
+scripts.doorA = function()
+
+end
+
+scripts.doorB = function()
+
+end
+
+-- dungeonA
+scripts.entryA = function()
+  msg 'Arrived in charlie\'s head'
+end
+
+scripts.exitA1 = function()
+  msg 'hm, not yet'
+end
+
+scripts.exitA2 = function()
+  ret_cmds({pop_cmds = {conv_name = 'charlie_complete'}})
+  msg 'time to go'
+end
+
+scripts.charlie_enemyA = function()
+  msg 'sup'
+end
+
+-- dungeonA
+scripts.entryB = function()
+  msg 'Arrived in bryan\'s head'
+end
+
+scripts.ice_obstacle = function()
+  msg 'hm, charlie can help with this.'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 scripts.a1 = function()

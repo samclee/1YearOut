@@ -44,8 +44,8 @@ function state:enter(from, p)
       goal = obj.properties.goal
       entry_conv = obj.properties.entry_conv
     -- Sign obj
-    elseif obj.name == 'Sign' then
-      local tn = obj.properties.true_name
+    elseif obj.type == 'Sign' then
+      local tn = obj.name
       local spr_name = obj.properties.spr_name
       local conv_names = gather_convs(tn)
       
@@ -59,8 +59,8 @@ function state:enter(from, p)
 
       print('\tcreated sign: \'' .. tn .. '\'')
     -- Destructable (Sign) obj
-    elseif obj.name == 'Destructable' then
-      local tn = obj.properties.true_name
+    elseif obj.type == 'Destructable' then
+      local tn = obj.name
       local conv_names = gather_convs(tn)
       
       local new_des = Destructable:new({x = obj.x, y = obj.y, 
@@ -75,15 +75,14 @@ function state:enter(from, p)
 
       print('\tcreated destructable: \'' .. tn .. '\'')
     -- Exit obj
-    elseif obj.name == 'Exit' then
-      local tn = obj.properties.true_name
-      local spr_name = obj.properties.spr_name
+    elseif obj.type == 'Exit' then
+      local tn = obj.name
       local conv_names = gather_convs(tn)
+
 
       local new_exit = Exit:new({x = obj.x, y = obj.y, 
                                   w = obj.width, h = obj.height, 
                                   conv_names = conv_names,
-                                  spr_name = spr_name
                                   })
       objs[tn] = new_exit
       self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
@@ -102,6 +101,8 @@ function state:enter(from, p)
       gs.push(states.conv, entry_conv)
       taking_input = true 
     end)
+
+  print('\tCollect ' .. goal .. ' to exit.')
 end
 
 function state:resume(from, ret_cmds)

@@ -7,7 +7,7 @@ function Exit:initialize(p)
   self.w = p.w
   self.h = p.h
   self.conv_names = p.conv_names
-  self.spr = sprites[p.spr_name]
+  self.spr = sprites['portal']
   self.active = true
 
   -- hard code
