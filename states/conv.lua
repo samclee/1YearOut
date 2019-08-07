@@ -3,26 +3,26 @@ local state = {}
 local cnv = nil
 local text_box = nil
 local script, dialog, choices = nil, nil, nil
-local left_portrait, right_portrait = nil, nil
-local left_clr, right_clr = 1, 1
+local portrait = nil
 
 function state:enter(from, script_name)
   self.from = from
   script = scripts[script_name]
+  portrait = nil
+
   dialog = Ero(script)
     :defineAttributes({
       'portrait',
       'ret_cmds',
 
       'shk',
-      'snd'
     })
 
   self.ret_cmds = {}
 
   cnv = love.graphics.newCanvas(64,64)
   cnv:setFilter('nearest', 'nearest')
-  text_box = dlog(f.sml, 1, 44, 63, 20)
+  text_box = dlog(f.sml, 0, 44, 64, 20)
 
   self:interpret_pkg(dialog:next())
 end
@@ -38,8 +38,9 @@ function state:interpret_pkg(pkg)
   end
 
   -- set portraits
-
-  -- set sound
+  if pkg.portrait then
+    portrait = pkg.portrait
+  end
 
   -- set shake
   if pkg.shk then
@@ -53,14 +54,6 @@ function state:draw()
 love.graphics.setCanvas(cnv)
 love.graphics.clear()
   shk:apply()
-  -- set left color
-  lg.setColor(left_clr, left_clr, left_clr)
-  -- draw left 
-
-  -- set right color
-  lg.setColor(right_clr, right_clr, right_clr)
-  -- draw right (flip)
-
   -- draw text_box
   lg.setColor(1,1,1)
   text_box:draw()

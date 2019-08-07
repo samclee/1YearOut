@@ -47,10 +47,10 @@ local function hexToDec(h)
 end
 
 pal = {
-  '#eefded',
-  '#7abeff',
-  '#2d757e',
-  '#001b2e'
+  '#f7bef7',
+  '#e78686',
+  '#7733e7',
+  '#2c2c96'
 }
 
 for i = 1, #pal do
@@ -108,7 +108,7 @@ Ero = require 'libs.erogodic'()
 -- gamestates
 gs = require 'libs.gamestate'
 s = {}
-statenames = {'title', 'overworld', 'conv', 'dungeon', 'credits'}
+statenames = {'title', 'overworld', 'conv', 'dungeon', 'minigame', 'credits'}
 for _,n in pairs(statenames) do
   s[n] = require ('states.'.. n)
 end

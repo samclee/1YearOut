@@ -10,7 +10,7 @@ local cover = {r = 90}
 local taking_input = true
 
 local plr = nil
-local objs = {}
+local objs, obstacles = {}, {}
 local cur_plr = 1
 
 function state:enter(from, p)
@@ -31,7 +31,7 @@ function state:enter(from, p)
   cover.r = 90
   taking_input = false
   plr = nil
-  objs = {}
+  objs, obstacles = {}, {}
   cur_plr = 1
   local entry_conv = nil
 
@@ -70,7 +70,7 @@ function state:enter(from, p)
                                         active = obj.properties.active,
                                         destroyed = obj.properties.destroyed
                                       })
-      objs[tn] = new_des
+      add(obstacles, new_des)
       self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
 
       print('\tcreated destructable: \'' .. tn .. '\'')
@@ -136,8 +136,7 @@ function state:resume(from, ret_cmds)
 
   -- ...move to minigame state
   if ret_cmds.minigame then
-    --gs.push(states.dungeon, ret_cmds.dungeon_name)
-    print('going to a battle I guess')
+    gs.push(states.minigame, ret_cmds.minigame)
   end
 
   -- ...return to overworld and supply these ret_cmds
@@ -168,6 +167,7 @@ love.graphics.clear()
 
   -- draw player
   foreach(objs, function(s) s:draw() end)
+  foreach(obstacles, function(s) s:draw() end)
   plr:draw()
 
   lg.pop()

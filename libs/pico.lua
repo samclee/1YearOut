@@ -54,6 +54,11 @@ function delv(tbl, val)
   end
 end
 
+function prt(str, x, y)
+  local x, y = x or 0, y or 0
+  love.graphics.printf(str, x, y, 620, 'left', 0, 0.1, 0.1)
+end
+
 function foreach(tbl, f)
   for i,e in pairs(tbl) do
     f(e)

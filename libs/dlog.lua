@@ -9,12 +9,6 @@ dlog.drawBg = function(self)
   lg.setColor(1,1,1)
 end
 
-dlog.drawBorder = function(self)
-	lg.setLineWidth(1)
-	lg.rectangle('line', self.x, self.y, self.w, self.h)
-  lg.rectangle('line', 16, 8, 32, 32)
-end
-
 dlog.drawChoices = function(self)
   lg.setFont(self.font)
   local m1, m2 = self.choices[1], self.choices[2]
@@ -118,7 +112,6 @@ end
 function dlog:draw()
 	if not self.active then return end
   self:drawBg()
-  self:drawBorder()
 
   if self.choices == nil then -- if regular text
     lg.printf(self.cur_msg, self.x + 1, self.y + 1, 620, 'left', 0, 0.1, 0.1)
