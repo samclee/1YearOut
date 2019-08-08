@@ -14,10 +14,20 @@ function state:enter(from, p)-- visuals
 
   if self.final then
     bgm.credits:play()
+    print(tostring(bgm.credits:isPlaying()))
   end
 
   y = 70
   credits_txt = [[
+game name
+
+
+
+
+
+
+
+
 Programming
   name1
 

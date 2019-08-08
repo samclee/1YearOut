@@ -7,15 +7,14 @@ local portrait = nil
 
 function state:enter(from, script_name)
   self.from = from
+  --print('Entered conv: \'' .. script_name .. '\'')
   script = scripts[script_name]
   portrait = nil
 
   dialog = Ero(script)
     :defineAttributes({
-      'portrait',
+      'spr',
       'ret_cmds',
-
-      'shk',
     })
 
   self.ret_cmds = {}
@@ -68,9 +67,7 @@ function state:update(dt)
 end
 
 function state:keypressed(k)
-  if k == 'q' then
-    gs.pop()
-  elseif k == 'up' then
+  if k == 'up' then
     text_box.cur_choice = text_box.cur_choice - 1
     if text_box.cur_choice == 0 then
       text_box:setChoice(2)

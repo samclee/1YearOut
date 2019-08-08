@@ -71,9 +71,9 @@ function state:enter(from, p)
                                         destroyed = obj.properties.destroyed
                                       })
       add(obstacles, new_des)
-      self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
+      self.wld:add(new_des, new_des.x, new_des.y, new_des.w, new_des.h)
 
-      print('\tcreated destructable: \'' .. tn .. '\'')
+      --print('\tcreated destructable: \'' .. tn .. '\'')
     -- Exit obj
     elseif obj.type == 'Exit' then
       local tn = obj.name
@@ -206,13 +206,14 @@ function state:keypressed(k)
   if not taking_input then return end
   if k == 'z' then
     local cx, cy = plr.x + 4 + plr.facing.x * 10, plr.y + 4 + plr.facing.y * 10
-    local items, len = self.wld:queryRect(cx-4, cy-4,8,8)
+    local items, len = self.wld:queryRect(cx-4, cy-4,6,6)
 
     for i = 1, len do
       if items[i].active and items[i].name == 'Sign' then
         items[i]:act()
       elseif items[i].active and items[i].name == 'Destructable' then
         items[i]:act(cur_plr)
+        break
       elseif items[i].name == 'Exit' then
         local done = (defeated >= goal)
         items[i]:act(done)

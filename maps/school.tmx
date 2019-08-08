@@ -4,7 +4,7 @@
   <image source="../sprites/dungeon_set.png" width="64" height="40"/>
  </tileset>
  <objectgroup id="4" name="myobjects">
-  <object id="1" name="Player" x="156" y="156" width="8" height="8"/>
+  <object id="1" name="Player" x="152" y="152" width="8" height="8"/>
   <object id="2" name="school_exit" type="Sign" x="152" y="184" width="16" height="8"/>
   <object id="3" name="charlie" type="Sign" x="28" y="152" width="8" height="8">
    <properties>

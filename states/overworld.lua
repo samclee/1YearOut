@@ -102,6 +102,11 @@ function state:resume(from, ret_cmds)
         gs.push(states.dungeon, {map_name = ret_cmds.dungeon_name}) 
       end)
   end
+
+  -- ...end game
+  if ret_cmds.final then
+    gs.push(states.credits, {final = true}) 
+  end
 end
 
 function state:draw()

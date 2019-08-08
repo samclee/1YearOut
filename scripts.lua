@@ -15,6 +15,7 @@ scripts.school_exit1 = function()
 end
 
 scripts.school_exit2 = function()
+  ret_cmds({final = true})
   msg 'you beat the game'
   msg 'go to credits here'
 end
@@ -160,6 +161,10 @@ end
 scripts.exitC2 = function()
   ret_cmds({pop_cmds = {conv_name = 'grace_complete'}})
   msg 'grace is good to go'
+end
+
+scripts.block_obstacle = function()
+  msg 'hm, bryan can help with this.'
 end
 
 

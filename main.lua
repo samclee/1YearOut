@@ -4,6 +4,11 @@ le = love.event
 lk = love.keyboard
 require 'libs.pico'
 function print_tbl(t, depth)
+  if t == nil then 
+    print('tbl is nil')
+    return
+  end
+
   local d = depth or 0
   for k,v in pairs(t) do
     local pre = ''
@@ -80,6 +85,8 @@ sfx = {
 bgm = {
   credits = music.birch4
 }
+
+
 
 -- animations
 a8 = require 'libs.anim8'
