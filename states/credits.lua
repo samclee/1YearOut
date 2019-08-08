@@ -5,19 +5,20 @@ local state = {}
 local cnv = nil
 local credits_txt = ''
 local y = 0
+local moving = false
 
 function state:enter(from, p)-- visuals
   cnv = love.graphics.newCanvas(64,64)
   cnv:setFilter('nearest', 'nearest')
   lg.setBackgroundColor(pal[4])
   self.final = p.final
+  moving = false
 
   if self.final then
     bgm.credits:play()
-    print(tostring(bgm.credits:isPlaying()))
   end
 
-  y = 70
+  y = 32
   credits_txt = [[
 game name
 

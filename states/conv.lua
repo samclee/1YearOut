@@ -48,7 +48,7 @@ function state:interpret_pkg(pkg)
 end
 
 function state:draw()
-  self.from:draw()
+  --self.from:draw()
 
 love.graphics.setCanvas(cnv)
 love.graphics.clear()

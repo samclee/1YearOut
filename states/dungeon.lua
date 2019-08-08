@@ -16,6 +16,7 @@ local cur_plr = 1
 function state:enter(from, p)
   print('\n=====\nEntering: ' .. p.map_name )
   self.from = from
+  self.map_name = p.map_name
 
   -- set up visuals
   cnv = love.graphics.newCanvas(64,64)
@@ -96,16 +97,18 @@ function state:enter(from, p)
   cam.x, cam.y = math.floor((plr.x + 4)/64), math.floor((plr.y + 4)/64)
 
   -- more entry logic
-  ti.tween(0.4, cover, {r = 0}, 'linear', 
+  ti.tween(0.6, cover, {r = 0}, 'linear', 
     function()
       gs.push(states.conv, entry_conv)
       taking_input = true 
     end)
 
   print('\tCollect ' .. goal .. ' to exit.')
+  bgm[p.map_name]:play()
 end
 
 function state:resume(from, ret_cmds)
+  bgm[self.map_name]:play()
 
   -- When the player returns from a state... (probably battle)
   if ret_cmds.success then
@@ -136,15 +139,16 @@ function state:resume(from, ret_cmds)
 
   -- ...move to minigame state
   if ret_cmds.minigame then
+    bgm[self.map_name]:pause()
     gs.push(states.minigame, ret_cmds.minigame)
   end
 
   -- ...return to overworld and supply these ret_cmds
   if ret_cmds.pop_cmds then
     taking_input = false
-    sfx.warp:play({volume = 0.2})
+    sfx.warp:play({volume = 0.5})
     ret_cmds.pop_cmds.from_dungeon = true
-    ti.tween(0.4, cover, {r = 90}, 'in-quart', function() gs.pop(ret_cmds.pop_cmds) end)
+    ti.tween(0.6, cover, {r = 90}, 'linear', function() bgm[self.map_name]:stop() gs.pop(ret_cmds.pop_cmds) end)
   end
 end
 

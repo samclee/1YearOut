@@ -4,7 +4,7 @@ local lg = love.graphics
 dlog.__index = dlog
 
 dlog.drawBg = function(self) 
-	lg.setColor(0,0,0, 0.6)
+	lg.setColor(0,0,0)
 	lg.rectangle('fill',self.x, self.y, self.w, self.h)
   lg.setColor(1,1,1)
 end

@@ -83,10 +83,17 @@ sfx = {
 }
 
 bgm = {
-  credits = music.birch4
+  credits = music.birch4,
+  minigame = music.birch2,
+  overworld = music.birch1,
+  dungeonA = music.birch5,
+  dungeonB = music.birch7,
+  dungeonC = music.birch6
 }
 
-
+for k,v in pairs(bgm) do
+  v:setLooping(true)
+end
 
 -- animations
 a8 = require 'libs.anim8'

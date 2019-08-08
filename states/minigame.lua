@@ -6,7 +6,7 @@ function state:enter(from, config)
   cnv = love.graphics.newCanvas(64,64)
   cnv:setFilter('nearest', 'nearest')
   print_tbl(config)
-
+  bgm.minigame:play()
 end
 
 
@@ -26,6 +26,7 @@ function state:update(dt)
 end
 
 function state:keypressed(k)
+  bgm.minigame:stop()
   gs.pop({success = true})
 end
 
