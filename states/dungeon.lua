@@ -209,18 +209,20 @@ end
 function state:keypressed(k)
   if not taking_input then return end
   if k == 'z' then
-    local cx, cy = plr.x + 4 + plr.facing.x * 10, plr.y + 4 + plr.facing.y * 10
-    local items, len = self.wld:queryRect(cx-4, cy-4,6,6)
+    local cx, cy = plr.x + 4 + plr.facing.x * 8, plr.y + 4 + plr.facing.y * 8
+    local items, len = self.wld:queryPoint(cx, cy)
 
     for i = 1, len do
       if items[i].active and items[i].name == 'Sign' then
         items[i]:act()
+        break
       elseif items[i].active and items[i].name == 'Destructable' then
         items[i]:act(cur_plr)
         break
       elseif items[i].name == 'Exit' then
         local done = (defeated >= goal)
         items[i]:act(done)
+        break
       end
     end
   elseif k == 'x' then

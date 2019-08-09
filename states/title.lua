@@ -11,7 +11,7 @@ local selection_fns = {
   end,
 
   function()
-    gs.push(s.credits, {final = false})
+    gs.push(s.credits, {final = true})
   end,
 
   function()
@@ -44,7 +44,7 @@ love.graphics.clear()
 
   lg.print('*', base_x - 4, base_y + (selection - 1) * spacing, 0, 0.1, 0.1)
 
-  local c = {pal[4][1], pal[4][2], pal[4][3], cover.o}
+  local c = {pal[4][1], pal[4][2], pal[4][3], round(cover.o,1)}
   rectfill(0, 0, 64, 64, c)
 
 love.graphics.setCanvas()
@@ -67,7 +67,7 @@ function state:keypressed(k)
     sfx.select:play({volume=1})
     taking_input = false
     if selection == 1 then
-      ti.tween(.5, cover, {o = 1}, 'out-cubic', function() selection_fns[selection]() end)
+      ti.tween(0.5, cover, {o = 1}, 'linear', function() selection_fns[selection]() end)
     else
       selection_fns[selection]()
     end

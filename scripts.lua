@@ -6,8 +6,8 @@ end
 
 -- Overworld
 scripts.school_entry = function()
-  msg '.......'
-  msg 'time for some adventure i guess'
+  msg 'there are people that need help.'
+  msg 'you do too.'
 end
 
 scripts.school_exit1 = function()
@@ -33,9 +33,10 @@ scripts.bryan1 = function()
 end
 
 scripts.grace1 = function()
+  spr 'graceportrait'
   ret_cmds({dungeon_name = 'dungeonC'})
-  msg 'idk what should go here'
-  msg 'going to grace dungeon'
+  msg 'i am grace'
+  msg 'going to my dungeon'
 end
 
 scripts.charlie_complete = function()
@@ -51,8 +52,9 @@ scripts.bryan_complete = function()
 end
 
 scripts.grace_complete = function()
+  spr 'graceportrait'
   ret_cmds({to_destroy = {'grace'}, to_set_mode = {school_exit = 2}})
-  msg 'finished last boss'
+  msg 'you helped me, nice'
   msg 'okay go leave'
 end
 

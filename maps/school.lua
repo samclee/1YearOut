@@ -133,7 +133,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "noisemaker"
+            ["spr_name"] = "airhorn"
           }
         },
         {
@@ -178,7 +178,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "sml"
+            ["spr_name"] = "grace"
           }
         }
       }

@@ -3,18 +3,19 @@ local state = {}
 local cnv = nil
 local text_box = nil
 local script, dialog, choices = nil, nil, nil
-local portrait = nil
+local spr = nil
 
 function state:enter(from, script_name)
   self.from = from
   --print('Entered conv: \'' .. script_name .. '\'')
   script = scripts[script_name]
-  portrait = nil
+  spr = nil
 
   dialog = Ero(script)
     :defineAttributes({
       'spr',
       'ret_cmds',
+      'shk'
     })
 
   self.ret_cmds = {}
@@ -37,8 +38,8 @@ function state:interpret_pkg(pkg)
   end
 
   -- set portraits
-  if pkg.portrait then
-    portrait = pkg.portrait
+  if pkg.spr then
+    spr = sprites[pkg.spr]
   end
 
   -- set shake
@@ -48,7 +49,7 @@ function state:interpret_pkg(pkg)
 end
 
 function state:draw()
-  --self.from:draw()
+  self.from:draw()
 
 love.graphics.setCanvas(cnv)
 love.graphics.clear()
@@ -56,6 +57,9 @@ love.graphics.clear()
   -- draw text_box
   lg.setColor(1,1,1)
   text_box:draw()
+  if spr then
+    lg.draw(spr, 32 - spr:getWidth() / 2, 16)
+  end
 
 
 love.graphics.setCanvas()

@@ -23,7 +23,7 @@
   </object>
   <object id="7" name="airhorn" type="Sign" x="72" y="144" width="8" height="8">
    <properties>
-    <property name="spr_name" value="noisemaker"/>
+    <property name="spr_name" value="airhorn"/>
    </properties>
   </object>
   <object id="8" name="chairs2" type="Sign" x="200" y="176" width="48" height="8">
@@ -38,7 +38,7 @@
   </object>
   <object id="10" name="grace" type="Sign" x="152" y="24" width="8" height="8">
    <properties>
-    <property name="spr_name" value="sml"/>
+    <property name="spr_name" value="grace"/>
    </properties>
   </object>
  </objectgroup>

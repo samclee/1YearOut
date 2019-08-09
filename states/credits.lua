@@ -39,10 +39,13 @@ Art
   name 3]]
 
   lg.setFont(f.sml)
+  ti.after(16, function() moving = true end)
 end
 
 function state:update(dt)
-  y = y - 0.05
+  if moving then 
+    y = y - 0.05
+  end
 end
 
 function state:draw()

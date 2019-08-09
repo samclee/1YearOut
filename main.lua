@@ -133,7 +133,7 @@ f = {}
 shk = require 'libs.shack'
 
 
--- logic
+-- utility
 function gather_convs(tn)
   local cur_conv_names = {}
   if scripts[tn] then
@@ -149,6 +149,11 @@ function gather_convs(tn)
   end
 
   return cur_conv_names
+end
+
+function round(num, numDecimalPlaces)
+  local mult = 10^(numDecimalPlaces or 0)
+  return math.floor(num * mult + 0.5) / mult
 end
 
 
@@ -167,10 +172,6 @@ end
 function love.update(dt)
   ti.update(dt)
   shk:update(dt)
-end
-
-function love.draw()
-
 end
 
 function love.keypressed(k)
