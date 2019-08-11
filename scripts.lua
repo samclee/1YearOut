@@ -1,13 +1,15 @@
 local scripts = {}
 
 scripts.none = function()
-  msg 'no script found for true name'
+  msg 'no script found for sprite'
 end
 
 -- Overworld
 scripts.school_entry = function()
   msg 'there are people that need help.'
-  msg 'you do too.'
+  msg 'gonna help them i guess'
+  msg 'p.s. we dont have Alex sprites rn'
+  msg 'so you\'re grace.'
 end
 
 scripts.school_exit1 = function()
@@ -21,53 +23,70 @@ scripts.school_exit2 = function()
 end
 
 scripts.charlie1 = function()
+  spr 'charlieportrait'
   ret_cmds({dungeon_name = 'dungeonA'})
   msg 'i am charlie'
-  msg 'going to my dungeon'
-end
-
-scripts.bryan1 = function()
-  ret_cmds({dungeon_name = 'dungeonB'})
-  msg 'i am bryan'
-  msg 'going to my dungeon'
+  msg 'going to my mindscape'
 end
 
 scripts.grace1 = function()
   spr 'graceportrait'
-  ret_cmds({dungeon_name = 'dungeonC'})
+  ret_cmds({dungeon_name = 'dungeonB'})
   msg 'i am grace'
-  msg 'going to my dungeon'
+  msg 'going to my mindscape'
+end
+
+scripts.bryan1 = function()
+  spr 'bryanportrait'
+  ret_cmds({dungeon_name = 'dungeonC'})
+  msg 'i am bryan'
+  msg 'going to my mindscape'
 end
 
 scripts.charlie_complete = function()
+  spr 'charlieportrait'
   ret_cmds({to_destroy = {'charlie'}})
-  msg 'helped charlie, good job'
-  msg 'they\'ll join you now'
-end
-
-scripts.bryan_complete = function()
-  ret_cmds({to_destroy = {'bryan'}})
-  msg 'helped bryan, nice'
-  msg 'he\'ll join you too'
+  msg 'thanks, you really helped me'
+  msg 'i\'m gonna disappear now'
 end
 
 scripts.grace_complete = function()
   spr 'graceportrait'
-  ret_cmds({to_destroy = {'grace'}, to_set_mode = {school_exit = 2}})
+  ret_cmds({to_destroy = {'grace'}})
   msg 'you helped me, nice'
-  msg 'okay go leave'
+end
+
+scripts.bryan_complete = function()
+  spr 'bryanportrait'
+  ret_cmds({to_destroy = {'bryan'}, to_set_mode = {school_exit = 2}})
+  msg 'thanks, i feel better'
+  msg 'also the game is over'
+  msg 'go to the front door to end the game'
 end
 
 scripts.keyA = function()
-
+  msg 'found a key'
 end
 
-scripts.doorA = function()
+scripts.doorA1 = function()
+  msg 'locked tight.'
+end
 
+scripts.doorA2 = function()
+  ret_cmds({to_destroy = {'doorA'}})
+  msg 'the lock opens with a soft click.'
 end
 
 scripts.doorB = function()
+  msg 'locked'
+end
 
+scripts.doorC = function()
+  msg 'locked'
+end
+
+scripts.doorD = function()
+  msg 'locked'
 end
 
 -- flavor objects
@@ -106,10 +125,11 @@ scripts.cap = function()
   msg 'everyone tossed their caps into the air.'
 end
 
--- dungeonA
+-- dungeonA (Charlie)
 scripts.entryA = function()
   msg 'Arrived in charlie\'s head'
-  msg 'help them with their probs (2)'
+  msg 'play (2) minigames'
+  msg 'then leave thru portal'
 end
 
 scripts.exitA1 = function()
@@ -119,54 +139,67 @@ end
 scripts.exitA2 = function()
   ret_cmds({pop_cmds = {conv_name = 'charlie_complete'}})
   msg 'charlie is good to go'
+  msg 'leaving their head'
 end
 
-scripts.charlie_enemyA = function()
+scripts.charlie_bug = function()
   ret_cmds({minigame = {'foo', 'bar'}})
-  msg 'sup, i\'m an enemy encounter'
+  msg 'sup, i\'m a bug'
+  msg 'i\'m a metaphor for something'
 end
 
--- dungeonB
+scripts.charlie_slime = function()
+  ret_cmds({minigame = {'foo', 'bar'}})
+  msg 'sup, i\'m a slime'
+  msg 'i, as well, am a metaphor'
+end
+
+-- dungeonB (Grace)
 scripts.entryB = function()
-  msg 'Arrived in bryan\'s head'
-  msg 'help him with his probs (3)'
+  msg 'Arrived in graces\'s head'
+  msg 'play (3) minigames'
+  msg 'then leave thru portal'
 end
 
 scripts.exitB1 = function()
-  msg 'bryan\'s still got some stuff'
+  msg 'grace\'s still got some stuff'
 end
 
 scripts.exitB2 = function()
-  ret_cmds({pop_cmds = {conv_name = 'bryan_complete'}})
-  msg 'bryan is good to go'
+  ret_cmds({pop_cmds = {conv_name = 'grace_complete'}})
+  msg 'grace is good to go'
+  msg 'leaving her head'
 end
 
-scripts.bryan_enemyA = function()
+scripts.grace_bandit = function()
   ret_cmds({minigame = {'foo', 'bar'}})
-  msg 'sup, i\'m an enemy encounter'
+  msg 'sup, i\'m a metaphor'
 end
 
 scripts.ice_obstacle = function()
   msg 'hm, charlie can help with this.'
 end
 
--- dungeonC
+-- dungeonC (Bryan)
 scripts.entryC = function()
-  msg 'Arrived in grace\'s head'
-  msg 'help her with his probs (3)'
+  msg 'Arrived in bryan\'s head'
+  msg 'play (4) minigames'
+  msg 'okay not rly this place is empty'
+  msg 'you can just leave rn'
 end
 
 scripts.exitC1 = function()
-  msg 'grace\'s still got some stuff'
+  msg 'bryan\'s still got some stuff'
 end
 
 scripts.exitC2 = function()
-  ret_cmds({pop_cmds = {conv_name = 'grace_complete'}})
-  msg 'grace is good to go'
+  ret_cmds({pop_cmds = {conv_name = 'bryan_complete'}})
+  msg 'bryan is good to go'
+  msg 'leaving his head'
 end
 
 scripts.block_obstacle = function()
-  msg 'hm, bryan can help with this.'
+  msg 'hm, grace can help with this.'
 end
 
 

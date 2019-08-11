@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 5,
-  nextobjectid = 5,
+  nextobjectid = 7,
   properties = {},
   tilesets = {
     {
@@ -68,7 +68,7 @@ return {
         },
         {
           id = 2,
-          name = "charlie_enemyA",
+          name = "charlie_bug",
           type = "Sign",
           shape = "rectangle",
           x = 96,
@@ -94,6 +94,21 @@ return {
           visible = true,
           properties = {
             ["spr_name"] = "portal"
+          }
+        },
+        {
+          id = 6,
+          name = "charlie_slime",
+          type = "Sign",
+          shape = "rectangle",
+          x = 24,
+          y = 96,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "slime"
           }
         }
       }

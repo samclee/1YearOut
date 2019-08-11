@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 5,
-  nextobjectid = 11,
+  nextobjectid = 16,
   properties = {},
   tilesets = {
     {
@@ -88,7 +88,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "sml"
+            ["spr_name"] = "charlie"
           }
         },
         {
@@ -96,14 +96,14 @@ return {
           name = "bryan",
           type = "Sign",
           shape = "rectangle",
-          x = 208,
-          y = 88,
+          x = 144,
+          y = 32,
           width = 8,
           height = 8,
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "sml"
+            ["spr_name"] = "bryan"
           }
         },
         {
@@ -171,14 +171,74 @@ return {
           name = "grace",
           type = "Sign",
           shape = "rectangle",
-          x = 152,
-          y = 24,
+          x = 208,
+          y = 96,
           width = 8,
           height = 8,
           rotation = 0,
           visible = true,
           properties = {
             ["spr_name"] = "grace"
+          }
+        },
+        {
+          id = 11,
+          name = "doorA",
+          type = "",
+          shape = "rectangle",
+          x = 56,
+          y = 160,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "door"
+          }
+        },
+        {
+          id = 12,
+          name = "doorB",
+          type = "Sign",
+          shape = "rectangle",
+          x = 120,
+          y = 88,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "door"
+          }
+        },
+        {
+          id = 14,
+          name = "doorC",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 120,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "door"
+          }
+        },
+        {
+          id = 15,
+          name = "doorD",
+          type = "",
+          shape = "rectangle",
+          x = 168,
+          y = 56,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "door"
           }
         }
       }

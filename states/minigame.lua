@@ -21,6 +21,7 @@ lg.clear()
 
 -- game drawing goes here
 prt('minigame state') -- function that prints stuff
+prt('press any key to end', 0, 10) -- function that prints stuff
 
 lg.setCanvas()
 lg.draw(cnv, 0, 0, 0, 10, 10)
@@ -32,10 +33,10 @@ end
 
 function state:keypressed(k)
 
-  if k == 'q' then
-    bgm.minigame:stop()
-    gs.pop({success = true})
-  end
+
+  bgm.minigame:stop()
+  gs.pop({success = true})
+
 end
 
 return state

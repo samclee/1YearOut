@@ -99,8 +99,8 @@ end
 a8 = require 'libs.anim8'
 an = {}
 char_grid = a8.newGrid(8, 8, 
-                        sprites.mall_kids_sheet:getWidth(),
-                        sprites.mall_kids_sheet:getHeight())
+                        sprites.char_sheet:getWidth(),
+                        sprites.char_sheet:getHeight())
 an.a_idle = a8.newAnimation(char_grid(1,1), 1)
 an.a_walk = a8.newAnimation(char_grid('2-3',1), 0.3)
 an.b_idle = a8.newAnimation(char_grid(1,2), 1)
@@ -122,7 +122,7 @@ Ero = require 'libs.erogodic'()
 -- gamestates
 gs = require 'libs.gamestate'
 s = {}
-statenames = {'title', 'overworld', 'conv', 'dungeon', 'minigame', 'credits'}
+statenames = {'title', 'overworld', 'conv', 'dungeon', 'minigame', 'credits', 'pregame'}
 for _,n in pairs(statenames) do
   s[n] = require ('states.'.. n)
 end

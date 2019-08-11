@@ -6,17 +6,17 @@ local cnv = nil
 local credits_txt = ''
 local y = 0
 local moving = false
+local cover = {}
 
 function state:enter(from, p)-- visuals
   cnv = love.graphics.newCanvas(64,64)
   cnv:setFilter('nearest', 'nearest')
   lg.setBackgroundColor(pal[4])
-  self.final = p.final
   moving = false
+  cover = {o = 1}
 
-  if self.final then
-    bgm.credits:play()
-  end
+  bgm.credits:play()
+
 
   y = 32
   credits_txt = [[
@@ -28,23 +28,34 @@ game name
 
 
 
-
-Programming
-  name1
+Design
+  name
 
 Writing
-  name 2
+  name
+  name
+
+Programming
+  name
+  name
 
 Art
-  name 3]]
+  name
+  name
+
+Music
+  name
+  name]]
+
 
   lg.setFont(f.sml)
   ti.after(16, function() moving = true end)
+  ti.tween(10, cover, {o = 0}, 'linear')
 end
 
 function state:update(dt)
   if moving then 
-    y = y - 0.05
+    y = y - 0.03
   end
 end
 
@@ -52,14 +63,17 @@ function state:draw()
 love.graphics.setCanvas(cnv)
 love.graphics.clear()
   lg.setColor(pal[1])
-  lg.print(credits_txt, 5, y, 0, 0.1, 0.1)
+  lg.print(credits_txt, 5, round(y), 0, 0.1, 0.1)
+
+  local c = {pal[1][1], pal[1][2], pal[1][3], round(cover.o,1)}
+  rectfill(0, 0, 64, 64, c)
 
 love.graphics.setCanvas()
 love.graphics.draw(cnv, 0, 0, 0, 10, 10)
 end
 
 function state:keypressed(k)
-  if not self.final then gs.pop() end
+
 end
 
 return state

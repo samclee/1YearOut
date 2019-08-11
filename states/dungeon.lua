@@ -217,7 +217,8 @@ function state:keypressed(k)
         items[i]:act()
         break
       elseif items[i].active and items[i].name == 'Destructable' then
-        items[i]:act(cur_plr)
+        --items[i]:act(cur_plr)
+        items[i]:destruct()
         break
       elseif items[i].name == 'Exit' then
         local done = (defeated >= goal)

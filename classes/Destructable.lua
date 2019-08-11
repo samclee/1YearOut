@@ -10,11 +10,15 @@ function Destructable:initialize(p)
   self.name = 'Destructable'
 end
 
+function Destructable:destruct()
+  self.active = false
+  self.cur_spr = self.destroyed
+end
+
 function Destructable:act(cur_char)
   -- if they're the right type, destroy self
   if cur_char == self.type then
-    self.active = false
-    self.cur_spr = self.destroyed
+    self:destruct()
   else
     -- if the player is the wrong type, give dialog
     if self.type == 2 then

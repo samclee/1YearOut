@@ -36,7 +36,7 @@ end
 
 function Player:draw()
   lg.setColor(1,1,1)
-  self.cur_anim:draw(sprites.mall_kids_sheet, 
+  self.cur_anim:draw(sprites.char_sheet, 
                                       math.floor(self.x)+4, math.floor(self.y)+4,
                                       0,-self.look_dir,1,4,4)
   --[[lg.setColor(0,1,0)

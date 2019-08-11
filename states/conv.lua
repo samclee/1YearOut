@@ -58,6 +58,7 @@ love.graphics.clear()
   lg.setColor(1,1,1)
   text_box:draw()
   if spr then
+    lg.setColor(1,1,1)
     lg.draw(spr, 32 - spr:getWidth() / 2, 16)
   end
 
