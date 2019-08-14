@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 9,
-  nextobjectid = 33,
+  nextobjectid = 42,
   properties = {},
   tilesets = {
     {
@@ -147,7 +147,9 @@ return {
           height = 8,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["inactive"] = true
+          }
         },
         {
           id = 18,
@@ -160,85 +162,8 @@ return {
           height = 8,
           rotation = 0,
           visible = true,
-          properties = {}
-        },
-        {
-          id = 19,
-          name = "barrierC",
-          type = "Sign",
-          shape = "rectangle",
-          x = 72,
-          y = 184,
-          width = 48,
-          height = 8,
-          rotation = 0,
-          visible = true,
           properties = {
             ["inactive"] = true
-          }
-        },
-        {
-          id = 24,
-          name = "group",
-          type = "Sign",
-          shape = "rectangle",
-          x = 72,
-          y = 176,
-          width = 24,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true,
-            ["spr_name"] = "standing"
-          }
-        },
-        {
-          id = 25,
-          name = "chasmA",
-          type = "Sign",
-          shape = "rectangle",
-          x = 72,
-          y = 144,
-          width = 16,
-          height = 24,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true,
-            ["spr_name"] = "chasm"
-          }
-        },
-        {
-          id = 26,
-          name = "chasmB",
-          type = "Sign",
-          shape = "rectangle",
-          x = 88,
-          y = 144,
-          width = 16,
-          height = 24,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true,
-            ["spr_name"] = "chasm"
-          }
-        },
-        {
-          id = 27,
-          name = "chasmC",
-          type = "Sign",
-          shape = "rectangle",
-          x = 104,
-          y = 144,
-          width = 16,
-          height = 24,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true,
-            ["spr_name"] = "chasm"
           }
         },
         {
@@ -287,6 +212,126 @@ return {
           properties = {
             ["inactive"] = true,
             ["spr_name"] = "grace"
+          }
+        },
+        {
+          id = 34,
+          name = "chairs2",
+          type = "Sign",
+          shape = "rectangle",
+          x = 136,
+          y = 240,
+          width = 48,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "chairs2"
+          }
+        },
+        {
+          id = 35,
+          name = "chairs",
+          type = "Sign",
+          shape = "rectangle",
+          x = 8,
+          y = 240,
+          width = 48,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "chairs"
+          }
+        },
+        {
+          id = 36,
+          name = "cap",
+          type = "Sign",
+          shape = "rectangle",
+          x = 160,
+          y = 232,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "cap"
+          }
+        },
+        {
+          id = 37,
+          name = "airhorn",
+          type = "Sign",
+          shape = "rectangle",
+          x = 24,
+          y = 232,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "airhorn"
+          }
+        },
+        {
+          id = 38,
+          name = "screen",
+          type = "Sign",
+          shape = "rectangle",
+          x = 136,
+          y = 192,
+          width = 46,
+          height = 22,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "screentext"
+          }
+        },
+        {
+          id = 39,
+          name = "TriggerA",
+          type = "StepTrigger",
+          shape = "rectangle",
+          x = 72,
+          y = 48,
+          width = 48,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true
+          }
+        },
+        {
+          id = 40,
+          name = "TriggerC",
+          type = "StepTrigger",
+          shape = "rectangle",
+          x = 72,
+          y = 144,
+          width = 48,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true
+          }
+        },
+        {
+          id = 41,
+          name = "TriggerB",
+          type = "StepTrigger",
+          shape = "rectangle",
+          x = 72,
+          y = 88,
+          width = 48,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true
           }
         }
       }

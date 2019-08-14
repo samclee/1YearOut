@@ -114,6 +114,7 @@ Player = require 'classes.Player'
 Sign = require 'classes.Sign'
 Destructable = require 'classes.Destructable'
 Exit = require 'classes.Exit'
+StepTrigger = require 'classes.StepTrigger'
 
 -- conversations
 scripts = require 'scripts'
@@ -153,6 +154,10 @@ end
 function round(num, numDecimalPlaces)
   local mult = 10^(numDecimalPlaces or 0)
   return math.floor(num * mult + 0.5) / mult
+end
+
+function aabb(ax, ay, aw, ah, bx, by, bw, bh)
+  return ax < bx + bw and bx < ax + aw and ay < by + bh and by < ay + ah
 end
 
 

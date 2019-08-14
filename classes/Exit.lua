@@ -14,6 +14,10 @@ function Exit:initialize(p)
   self.name = 'Exit'
 end
 
+function Exit:update()
+
+end
+
 function Exit:draw()
   lg.setColor(1,1,1)
   lg.draw(self.spr, self.x, self.y)

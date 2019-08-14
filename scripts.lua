@@ -5,66 +5,6 @@ scripts.none = function()
 end
 
 -- Overworld
-scripts.school_entry = function()
-  msg 'there are people that need help.'
-  msg 'gonna help them i guess'
-  msg 'p.s. we dont have Alex sprites rn'
-  msg 'so you\'re grace.'
-end
-
-scripts.school_exit1 = function()
-  msg 'i still have stuff to take care of'
-end
-
-scripts.school_exit2 = function()
-  ret_cmds({final = true})
-  msg 'you beat the game'
-  msg 'go to credits here'
-end
-
-scripts.charlie1 = function()
-  spr 'charlieportrait'
-  ret_cmds({dungeon_name = 'dungeonA'})
-  msg 'i am charlie'
-  msg 'going to my mindscape'
-end
-
-scripts.grace1 = function()
-  spr 'graceportrait'
-  ret_cmds({dungeon_name = 'dungeonB'})
-  msg 'i am grace'
-  msg 'going to my mindscape'
-end
-
-scripts.bryan1 = function()
-  spr 'bryanportrait'
-  ret_cmds({dungeon_name = 'dungeonC'})
-  msg 'i am bryan'
-  msg 'going to my mindscape'
-end
-
-scripts.charlie_complete = function()
-  spr 'charlieportrait'
-  ret_cmds({to_destroy = {'charlie', 'barrierA'}})
-  msg 'thanks, you really helped me'
-  msg 'i\'m gonna disappear now'
-end
-
-scripts.grace_complete = function()
-  spr 'graceportrait'
-  ret_cmds({to_destroy = {'grace', 'barrierB'}})
-  msg 'you helped me, nice'
-end
-
-scripts.bryan_complete = function()
-  spr 'bryanportrait'
-  ret_cmds({to_destroy = {'bryan'}, 
-            to_set_mode = {school_exit = 2},
-            to_activate = {'chasmA', 'chasmB', 'chasmC', 'group'}
-          })
-  msg 'thanks, i feel better'
-end
-
 scripts.door = function()
   msg 'locked tight.'
 end
@@ -77,43 +17,49 @@ scripts.barrierB = function()
   msg 'is there someone in that room?'
 end
 
-scripts.chasmB = function()
-  ret_cmds({to_destroy = {'chasmB'}})
-  msg 'talk'
+scripts.heart = function()
+  ret_cmds({minigame = {'foo', 'bar'}})
+  msg 'hey'
 end
 
-scripts.chasmA = function()
-  msg 'cant pass'
+-- auditorium
+scripts.school_entry = function()
+  msg 'there are people that need help.'
 end
 
-scripts.chasmC = function()
-  msg 'cant pass'
+scripts.school_exit1 = function()
+  msg '...'
+  msg 'i\'m not done here.'
 end
 
-scripts.group = function()
-  ret_cmds({to_destroy = {'barrierC', 'group'},
-            to_activate = {'bryanfinal', 'charliefinal', 'gracefinal'}})
-  msg 'you did it hooray'
-  msg 'lets go to auditorium'
+scripts.school_exit2 = function()
+  ret_cmds({final = true})
+  msg 'you beat the game'
+  msg 'go to credits here'
 end
-
--- flavor objects
 scripts.chairs =  function()
-  msg 'Most of the seats are empty.'
+  msg 'most of the seats are empty.'
   msg 'some hold noisemakers and posters.'
   msg 'check poster?'
   option 'yes'
   option 'no'
   menu 'not seen'
   if selection 'yes' then
-    msg 'The posters display generic messages like'
-    msg '\'Congrats!\', or \'You made it!\''
+    msg 'the posters display generic messages like'
+    msg '\"Congrats!\", or \"You made it!\"'
   end
 end
 
 scripts.chairs2 = function()
-  msg 'Some graduation caps sit neatly on the chairs,'
+  msg 'some graduation caps sit neatly on the chairs,'
   msg 'waiting for their owners to return.'
+  msg 'look closer?'
+  option 'yes'
+  option 'no'
+  menu 'not seen'
+  if selection 'yes' then
+    msg 'all of the caps are undecorated.'
+  end
 end
 
 scripts.airhorn = function()
@@ -129,13 +75,31 @@ end
 
 scripts.cap = function()
   msg 'a cap lies on the ground.'
-  msg 'likely abandoned after'
-  msg 'everyone tossed their caps into the air.'
+  msg 'likely abandoned after everyone'
+  msg 'tossed their caps into the air.'
+end
+
+scripts.screen = function()
+  msg 'The projection on the wall flickers.'
+  msg 'In bold letter it reads'
+  msg '\"CONGRATS CLASS OF 20--.\"'
+  msg 'A large crack in the projector lens'
+  msg 'cuts off the rest of the year.'
 end
 
 -- dungeonA (Charlie)
+scripts.charlie1 = function()
+  spr 'charlieportrait'
+  ret_cmds({dungeon_name = 'dungeonA'})
+  msg 'i am charlie'
+  msg 'going to my mindscape'
+end
+
 scripts.entryA = function()
   msg 'Arrived in charlie\'s head'
+  spr 'charlieportrait'
+  msg 'details abt myself'
+  msg 'okay go inspect now'
 end
 
 scripts.exitA1 = function()
@@ -148,10 +112,46 @@ scripts.exitA2 = function()
   msg 'leaving their head'
 end
 
+scripts.charlie_complete = function()
+  spr 'charlieportrait'
+  ret_cmds({to_destroy = {'charlie', 'barrierA'}})
+  msg 'thanks, you really helped me'
+  msg 'i\'m gonna disappear now'
+end
+
+scripts.charlieA = function()
+  ret_cmds({seen = 1})
+  msg 'seen 1'
+end
+
+scripts.charlieB = function()
+  ret_cmds({seen = 2})
+  msg 'seen 2'
+end
+
+scripts.charlieC = function()
+  ret_cmds({seen = 3})
+  msg 'seen 3'
+end
+
+scripts.charlieD = function()
+  ret_cmds({seen = 4})
+  msg 'seen 4'
+end
+
 
 -- dungeonB (Grace)
+scripts.grace1 = function()
+  spr 'graceportrait'
+  ret_cmds({dungeon_name = 'dungeonB'})
+  msg 'i am grace'
+  msg 'going to my mindscape'
+end
+
 scripts.entryB = function()
-  msg 'Arrived in graces\'s head'
+  spr 'graceportrait'
+  msg 'details abt myself'
+  msg 'okay go inspect now'
 end
 
 scripts.exitB1 = function()
@@ -164,9 +164,24 @@ scripts.exitB2 = function()
   msg 'leaving her head'
 end
 
+scripts.grace_complete = function()
+  spr 'graceportrait'
+  ret_cmds({to_destroy = {'grace', 'barrierB'}})
+  msg 'you helped me, nice'
+end
+
 -- dungeonC (Bryan)
+scripts.bryan1 = function()
+  spr 'bryanportrait'
+  ret_cmds({dungeon_name = 'dungeonC'})
+  msg 'i am bryan'
+  msg 'going to my mindscape'
+end
+
 scripts.entryC = function()
-  msg 'Arrived in bryan\'s head'
+  spr 'bryanportrait'
+  msg 'details abt myself'
+  msg 'okay go inspect now'
 end
 
 scripts.exitC1 = function()
@@ -179,7 +194,52 @@ scripts.exitC2 = function()
   msg 'leaving his head'
 end
 
+scripts.bryan_complete = function()
+  spr 'bryanportrait'
+  ret_cmds({to_destroy = {'bryan'}, 
+            to_set_mode = {school_exit = 2},
+            to_activate = {'TriggerA', 'TriggerB', 'TriggerC'}
+          })
+  msg 'thanks, i feel better'
+end
 
+-- dungeonD (Alex)
+scripts.TriggerA = function()
+  msg 'i...'
+  msg 'i feel weird.'
+end
+
+scripts.TriggerB = function()
+  msg 'what\'s going on with me?'
+end
+
+scripts.TriggerC = function()
+  ret_cmds({dungeon_name = 'dungeonD'})
+  msg 'argh!'
+  msg 'my head!'
+  msg 'i\'m going to...'
+
+end
+
+scripts.entryD = function()
+  msg 'what the...'
+  msg 'where am i?'
+end
+
+scripts.chasm = function()
+  ret_cmds({to_destroy = {'chasm'}})
+  msg 'trapped...'
+  msg 'alone...'
+end
+
+scripts.exitD = function()
+  ret_cmds({pop_cmds = {conv_name = 'alex_complete'}})
+  msg 'i\'m good now.'
+end
+
+scripts.alex_complete = function()
+  msg 'made it out yey.'
+end
 
 
 

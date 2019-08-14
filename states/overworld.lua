@@ -10,6 +10,7 @@ local taking_input = true
 
 local plr = nil
 local objs = {}
+local step_triggers = {}
 
 local fog = {c = clrs.red, active = true}
 
@@ -32,6 +33,7 @@ function state:enter(from)
   -- create objects from map
   plr = nil
   objs = {}
+  step_triggers = {}
   for i, obj in pairs(self.map.objects) do
     -- Player obj
     if obj.name == 'Player' then
@@ -53,6 +55,16 @@ function state:enter(from)
       self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
 
       print('\tcreated sign: \'' .. tn .. '\'')
+    elseif obj.type == 'StepTrigger' then
+      local tn = obj.name
+      local conv_names = gather_convs(tn)
+      
+      local new_step_trigger = StepTrigger:new({x = obj.x, y = obj.y,
+                                                w = obj.width, h = obj.height,
+                                                conv_name = conv_names[1],
+                                                inactive = obj.properties.inactive
+                                              })
+      objs[tn] = new_step_trigger
     end
   end -- end create objects
 
@@ -184,6 +196,8 @@ function state:update(dt)
 
   plr.x, plr.y = self.wld:move(plr, plr.x + dx * plr.spd, plr.y + dy * plr.spd, plr.filter)
   plr.moving = dx ~= 0 or dy ~= 0
+
+  foreach(objs, function(s) s:update(plr.x, plr.y, plr.w, plr.h) end)
 
   plr:update(dt)
 end

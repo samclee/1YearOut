@@ -5,12 +5,13 @@ local state = {}
 local cnv = nil
 local cam = {lerping = false, x = 0, y = 0}
 
-local defeated, goal = 0, 0
-local cover = {r = 90}
+local goal = {}
+local cover = {r = 90, clr = pal[4]}
 local taking_input = true
 
 local plr = nil
 local objs, obstacles = {}, {}
+local music_on = true
 
 function state:enter(from, p)
   print('\n=====\nEntering: ' .. p.map_name )
@@ -27,11 +28,10 @@ function state:enter(from, p)
   self.map:bump_init(self.wld)
 
   -- entry logic
-  defeated = 0
   cover.r = 90
   taking_input = false
   plr = nil
-  objs, obstacles = {}, {}
+  objs, obstacles, goal = {}, {}, {}
   cur_plr = 1
   local entry_conv = nil
 
@@ -41,8 +41,13 @@ function state:enter(from, p)
     if obj.name == 'Player' then
       plr = Player:new({x = obj.x, y = obj.y})
       self.wld:add(plr, plr.x, plr.y, 8, 8)
-      goal = obj.properties.goal
+      local goal_num = obj.properties.goal
+      for i = 1, goal_num do
+        add(goal, false)
+      end
+
       entry_conv = obj.properties.entry_conv
+      music_on = not obj.properties.music_off
     -- Sign obj
     elseif obj.type == 'Sign' then
       local tn = obj.name
@@ -88,6 +93,16 @@ function state:enter(from, p)
       self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
 
       print('\tcreated exit: \'' .. tn .. '\'')
+    elseif obj.type == 'StepTrigger' then
+      local tn = obj.name
+      local conv_names = gather_convs(tn)
+      
+      local new_step_trigger = StepTrigger:new({x = obj.x, y = obj.y,
+                                                w = obj.width, h = obj.height,
+                                                conv_name = conv_names[1],
+                                                inactive = obj.properties.inactive
+                                              })
+      objs[tn] = new_step_trigger
     end
   end -- end create objects
 
@@ -102,16 +117,30 @@ function state:enter(from, p)
       taking_input = true 
     end)
 
-  print('\tCollect ' .. goal .. ' to exit.')
-  --bgm[p.map_name]:play()
+  print('\tInspect ' .. #goal .. ' to exit.')
+
+  if music_on then bgm[p.map_name]:play() end
 end
 
 function state:resume(from, ret_cmds)
-  --bgm[self.map_name]:play()
+  if music_on then bgm[self.map_name]:play() end
 
   -- When the player returns from a state... (probably battle)
   if ret_cmds.success then
-    defeated = defeated + 1
+
+    ti.tween(0.3, cover, {r = 0}, 'linear', 
+    function()
+      -- ...start a conversation
+      if ret_cmds.conv_name then
+        gs.push(states.conv, ret_cmds.conv_name)
+      end
+      taking_input = true 
+    end)
+  end
+
+  if ret_cmds.seen then
+    goal[ret_cmds.seen] = true
+    print('\tInspected: ' .. ret_cmds.seen)
   end
 
   -- When the player returns from a state... (probably conversation)
@@ -138,8 +167,14 @@ function state:resume(from, ret_cmds)
 
   -- ...move to minigame state
   if ret_cmds.minigame then
-    --bgm[self.map_name]:pause()
-    gs.push(states.minigame, ret_cmds.minigame)
+    taking_input = false
+    sfx.warp:play({volume = 0.5})
+    cover.clr = pal[1]
+    ti.tween(0.6, cover, {r = 90}, 'linear', 
+      function() 
+        if music_on then bgm[self.map_name]:pause() end
+        gs.push(states.minigame, ret_cmds.minigame)
+      end)
   end
 
   -- ...return to overworld and supply these ret_cmds
@@ -147,9 +182,10 @@ function state:resume(from, ret_cmds)
     taking_input = false
     sfx.warp:play({volume = 0.5})
     ret_cmds.pop_cmds.from_dungeon = true
+    cover.clr = pal[4]
     ti.tween(0.6, cover, {r = 90}, 'linear', 
       function() 
-        --bgm[self.map_name]:stop() 
+        if music_on then bgm[self.map_name]:stop()  end
         gs.pop(ret_cmds.pop_cmds) 
       end)
   end
@@ -179,7 +215,7 @@ love.graphics.clear()
 
   lg.pop()
 
-  circfill(32,32,cover.r,pal[4])
+  circfill(32,32,cover.r,cover.clr)
 
 love.graphics.setCanvas()
 love.graphics.draw(cnv, 0, 0, 0, 10, 10)
@@ -206,6 +242,9 @@ function state:update(dt)
 
   plr.x, plr.y = self.wld:move(plr, plr.x + dx * plr.spd, plr.y + dy * plr.spd, plr.filter)
   plr.moving = dx ~= 0 or dy ~= 0
+
+  foreach(objs, function(s) s:update(plr.x, plr.y, plr.w, plr.h) end)
+
   plr:update(dt)
 end
 
@@ -224,7 +263,11 @@ function state:keypressed(k)
         items[i]:destruct()
         break
       elseif items[i].name == 'Exit' then
-        local done = (defeated >= goal)
+        local done = true
+        for i,v in pairs(goal) do
+          done = done and v
+        end
+
         items[i]:act(done)
         break
       end

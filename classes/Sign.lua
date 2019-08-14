@@ -14,11 +14,8 @@ function Sign:initialize(p)
     self.spr = nil
   end
 
-  if p.inactive then
-    self.active = false
-  else
-    self.active = true
-  end
+  self.active = not p.inactive
+
 
   -- hard code
   self.name = 'Sign'
@@ -30,6 +27,10 @@ function Sign:draw()
     lg.setColor(1,1,1)
     lg.draw(self.spr, self.x, self.y)
   end
+end
+
+function Sign:update()
+
 end
 
 function Sign:set_mode(m)

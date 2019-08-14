@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="8" tileheight="8" infinite="0" nextlayerid="9" nextobjectid="33">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="8" tileheight="8" infinite="0" nextlayerid="9" nextobjectid="42">
  <tileset firstgid="1" name="dungeon_set" tilewidth="8" tileheight="8" tilecount="40" columns="8">
   <image source="../sprites/dungeon_set.png" width="64" height="40"/>
  </tileset>
@@ -26,35 +26,14 @@
     <property name="spr_name" value="door"/>
    </properties>
   </object>
-  <object id="17" name="barrierA" type="Sign" x="72" y="128" width="48" height="8"/>
-  <object id="18" name="barrierB" type="Sign" x="72" y="64" width="48" height="8"/>
-  <object id="19" name="barrierC" type="Sign" x="72" y="184" width="48" height="8">
+  <object id="17" name="barrierA" type="Sign" x="72" y="128" width="48" height="8">
    <properties>
     <property name="inactive" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="24" name="group" type="Sign" x="72" y="176" width="24" height="8">
+  <object id="18" name="barrierB" type="Sign" x="72" y="64" width="48" height="8">
    <properties>
     <property name="inactive" type="bool" value="true"/>
-    <property name="spr_name" value="standing"/>
-   </properties>
-  </object>
-  <object id="25" name="chasmA" type="Sign" x="72" y="144" width="16" height="24">
-   <properties>
-    <property name="inactive" type="bool" value="true"/>
-    <property name="spr_name" value="chasm"/>
-   </properties>
-  </object>
-  <object id="26" name="chasmB" type="Sign" x="88" y="144" width="16" height="24">
-   <properties>
-    <property name="inactive" type="bool" value="true"/>
-    <property name="spr_name" value="chasm"/>
-   </properties>
-  </object>
-  <object id="27" name="chasmC" type="Sign" x="104" y="144" width="16" height="24">
-   <properties>
-    <property name="inactive" type="bool" value="true"/>
-    <property name="spr_name" value="chasm"/>
    </properties>
   </object>
   <object id="30" name="charliefinal" type="Sign" x="40" y="216" width="8" height="8">
@@ -73,6 +52,46 @@
    <properties>
     <property name="inactive" type="bool" value="true"/>
     <property name="spr_name" value="grace"/>
+   </properties>
+  </object>
+  <object id="34" name="chairs2" type="Sign" x="136" y="240" width="48" height="8">
+   <properties>
+    <property name="spr_name" value="chairs2"/>
+   </properties>
+  </object>
+  <object id="35" name="chairs" type="Sign" x="8" y="240" width="48" height="8">
+   <properties>
+    <property name="spr_name" value="chairs"/>
+   </properties>
+  </object>
+  <object id="36" name="cap" type="Sign" x="160" y="232" width="8" height="8">
+   <properties>
+    <property name="spr_name" value="cap"/>
+   </properties>
+  </object>
+  <object id="37" name="airhorn" type="Sign" x="24" y="232" width="8" height="8">
+   <properties>
+    <property name="spr_name" value="airhorn"/>
+   </properties>
+  </object>
+  <object id="38" name="screen" type="Sign" x="136" y="192" width="46" height="22">
+   <properties>
+    <property name="spr_name" value="screentext"/>
+   </properties>
+  </object>
+  <object id="39" name="TriggerA" type="StepTrigger" x="72" y="48" width="48" height="8">
+   <properties>
+    <property name="inactive" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="40" name="TriggerC" type="StepTrigger" x="72" y="144" width="48" height="8">
+   <properties>
+    <property name="inactive" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="41" name="TriggerB" type="StepTrigger" x="72" y="88" width="48" height="8">
+   <properties>
+    <property name="inactive" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>
