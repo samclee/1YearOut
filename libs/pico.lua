@@ -1,41 +1,25 @@
 function rect(x,y,w,h,c)
-  love.graphics.push()
-
   love.graphics.setColor(c)
   love.graphics.rectangle('line',x,y,w,h)
   love.graphics.setColor(1,1,1)
-
-  love.graphics.pop()
 end
 
 function rectfill(x,y,w,h,c)
-  love.graphics.push()
-
   love.graphics.setColor(c)
   love.graphics.rectangle('fill',x,y,w,h)
   love.graphics.setColor(1,1,1)
-
-  love.graphics.pop()
 end
 
 function circ(x,y,r,c)
-  love.graphics.push()
-
   love.graphics.setColor(c)
   love.graphics.ellipse('line',x,y,r)
   love.graphics.setColor(1,1,1)
-
-  love.graphics.pop()
 end
 
 function circfill(x,y,r,c)
-  love.graphics.push()
-
   love.graphics.setColor(c)
   love.graphics.ellipse('fill',x,y,r)
   love.graphics.setColor(1,1,1)
-
-  love.graphics.pop()
 end
 
 function add(tbl, val)

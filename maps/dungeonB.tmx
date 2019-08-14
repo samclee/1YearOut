@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="24" tilewidth="8" tileheight="8" infinite="0" nextlayerid="4" nextobjectid="22">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="16" height="24" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="22">
  <tileset firstgid="1" name="dungeon_set" tilewidth="8" tileheight="8" tilecount="40" columns="8">
   <image source="../sprites/dungeon_set.png" width="64" height="40"/>
  </tileset>
@@ -7,12 +7,7 @@
   <object id="1" name="Player" x="96" y="24" width="8" height="8">
    <properties>
     <property name="entry_conv" value="entryB"/>
-    <property name="goal" type="int" value="3"/>
-   </properties>
-  </object>
-  <object id="2" name="grace_bandit" type="Sign" x="80" y="104" width="8" height="8">
-   <properties>
-    <property name="spr_name" value="bandit"/>
+    <property name="goal" type="int" value="0"/>
    </properties>
   </object>
   <object id="3" name="exitB" type="Exit" x="88" y="160" width="8" height="8">
@@ -20,176 +15,64 @@
     <property name="spr_name" value="portal"/>
    </properties>
   </object>
-  <object id="4" type="Destructable" x="88" y="56" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="5" type="Destructable" x="80" y="56" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="6" type="Destructable" x="112" y="96" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="7" type="Destructable" x="104" y="96" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="8" type="Destructable" x="104" y="104" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="10" type="Destructable" x="104" y="112" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="11" type="Destructable" x="24" y="72" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="12" type="Destructable" x="32" y="72" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="13" type="Destructable" x="40" y="72" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="14" type="Destructable" x="40" y="64" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="15" type="Destructable" x="32" y="64" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="16" type="Destructable" x="24" y="160" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="17" type="Destructable" x="8" y="160" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="18" type="Destructable" x="16" y="160" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="19" type="Destructable" x="24" y="176" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="20" type="Destructable" x="24" y="168" width="8" height="8">
-   <properties>
-    <property name="active" value="ice"/>
-    <property name="destroyed" value="ice2"/>
-    <property name="type" type="int" value="2"/>
-   </properties>
-  </object>
  </objectgroup>
- <layer id="2" name="bg" width="24" height="24">
+ <layer id="4" name="bg" width="16" height="24">
   <data encoding="csv">
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,15,16,16,16,16,15,16,16,12,16,16,16,16,12,16,16,16,16,16,16,16,16,16,
-16,13,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,13,16,16,16,16,13,13,13,13,13,13,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,13,13,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,15,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,15,16,16,16,16,16,16,16,12,16,16,16,16,12,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,13,13,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,13,13,13,12,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,15,16,16,16,16,15,16,16,12,16,16,16,16,12,16,
+16,13,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,13,16,16,16,16,13,15,13,14,13,15,16,
+16,16,16,16,16,14,13,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,15,16,16,16,16,16,16,16,16,16,
+16,15,16,16,16,16,16,16,16,12,16,16,16,16,12,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,13,13,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,13,13,13,12,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16
 </data>
  </layer>
- <layer id="1" name="walls" width="24" height="24">
+ <layer id="5" name="walls" width="16" height="24">
   <properties>
    <property name="collidable" type="bool" value="true"/>
   </properties>
   <data encoding="csv">
-9,10,10,10,10,10,10,9,9,10,10,10,10,10,10,9,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-9,10,10,10,0,0,10,9,9,10,0,0,10,10,10,9,0,0,0,0,0,0,0,0,
-9,10,10,10,0,0,10,9,9,10,0,0,10,10,10,9,9,10,10,10,10,10,10,9,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
-11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
-11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,
-9,10,10,0,0,10,10,9,9,10,10,10,10,10,10,9,9,10,10,10,10,10,10,9,
-9,10,10,0,0,10,10,9,9,10,10,10,10,10,10,9,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,
-9,10,10,10,10,10,10,9,9,10,10,10,10,10,10,9,0,0,0,0,0,0,0,0
+9,10,10,10,10,10,10,9,9,10,10,10,10,10,10,9,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+9,10,10,10,0,0,10,9,9,10,0,0,10,10,10,9,
+9,10,10,10,0,0,10,9,9,10,0,0,10,10,10,9,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+9,10,10,0,0,10,10,9,9,10,10,10,10,10,10,9,
+9,10,10,0,0,10,10,9,9,10,10,10,10,10,10,9,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+11,0,0,0,0,0,0,11,11,0,0,0,0,0,0,11,
+9,10,10,10,10,10,10,9,9,10,10,10,10,10,10,9
 </data>
  </layer>
 </map>

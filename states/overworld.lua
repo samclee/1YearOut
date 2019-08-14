@@ -11,6 +11,8 @@ local taking_input = true
 local plr = nil
 local objs = {}
 
+local fog = {c = clrs.red, active = true}
+
 function state:enter(from)
   print('\n----------------------\nGAME START\n----------------------\nEntering Overworld')
   self.from = from
@@ -44,7 +46,8 @@ function state:enter(from)
       local new_sign = Sign:new({x = obj.x, y = obj.y, 
                                   w = obj.width, h = obj.height, 
                                   conv_names = conv_names,
-                                  spr_name = spr_name
+                                  spr_name = spr_name,
+                                  inactive = obj.properties.inactive
                                 })
       objs[tn] = new_sign
       self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
@@ -54,7 +57,7 @@ function state:enter(from)
   end -- end create objects
 
   cam.x, cam.y = math.floor((plr.x + 4)/64), math.floor((plr.y + 4)/64)
-  bgm.overworld:play()
+  --bgm.overworld:play()
 end
 
 function state:resume(from, ret_cmds)
@@ -62,7 +65,7 @@ function state:resume(from, ret_cmds)
   -- When the player returns from a state... (probably dungeon)
   if ret_cmds.from_dungeon then
     print('=====\nResumed Overworld')
-    bgm.overworld:play()
+    --bgm.overworld:play()
     -- ...check if it was from a dungeon
     ti.tween(0.6, cover, {r = 0}, 'linear', 
       function()
@@ -79,12 +82,24 @@ function state:resume(from, ret_cmds)
     end
   end
 
+  if ret_cmds.max_chars then
+    max_chars = ret_cmds.max_chars
+  end
+
   -- When the player returns from a state... (probably conversation)
   -- ...deactivate listed objs
   if ret_cmds.to_destroy then
     for _,name in pairs(ret_cmds.to_destroy) do
       objs[name]:set_active(false)
       print('\tdestroyed: \'' .. name .. '\'')
+    end
+  end
+
+  -- ...activate listed objs
+  if ret_cmds.to_activate then
+    for _,name in pairs(ret_cmds.to_activate) do
+      objs[name]:set_active(true)
+      print('\tactivated: \'' .. name .. '\'')
     end
   end
 
@@ -102,14 +117,14 @@ function state:resume(from, ret_cmds)
     sfx.warp:play({volume = 0.5})
     ti.tween(0.6, cover, {r = 90}, 'linear', 
       function()
-        bgm.overworld:pause()
+        --bgm.overworld:pause()
         gs.push(states.dungeon, {map_name = ret_cmds.dungeon_name}) 
       end)
   end
 
   -- ...end game
   if ret_cmds.final then
-    bgm.overworld:stop()
+    --bgm.overworld:stop()
     gs.push(states.credits, {final = true}) 
   end
 end
@@ -123,7 +138,11 @@ love.graphics.clear()
   if not cam.lerping and (cam.x ~= mx or cam.y ~= my) then
     cam.lerping = true
     taking_input = false
-    ti.tween(1, cam, {x = mx, y = my}, 'linear', function() cam.lerping = false  taking_input = true end)
+    ti.tween(1, cam, {x = mx, y = my}, 'linear', 
+      function()
+        cam.lerping = false
+        taking_input = true 
+      end)
   end
   -- draw map
   self.map:draw(-64 * cam.x, -64 * cam.y)

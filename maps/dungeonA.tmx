@@ -7,22 +7,12 @@
   <object id="1" name="Player" x="28" y="28" width="8" height="8">
    <properties>
     <property name="entry_conv" value="entryA"/>
-    <property name="goal" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="2" name="charlie_bug" type="Sign" x="96" y="32" width="8" height="8">
-   <properties>
-    <property name="spr_name" value="bug"/>
+    <property name="goal" type="int" value="0"/>
    </properties>
   </object>
   <object id="3" name="exitA" type="Exit" x="156" y="96" width="8" height="8">
    <properties>
     <property name="spr_name" value="portal"/>
-   </properties>
-  </object>
-  <object id="6" name="charlie_slime" type="Sign" x="24" y="96" width="8" height="8">
-   <properties>
-    <property name="spr_name" value="slime"/>
    </properties>
   </object>
  </objectgroup>

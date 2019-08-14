@@ -11,7 +11,6 @@ local taking_input = true
 
 local plr = nil
 local objs, obstacles = {}, {}
-local cur_plr = 1
 
 function state:enter(from, p)
   print('\n=====\nEntering: ' .. p.map_name )
@@ -104,11 +103,11 @@ function state:enter(from, p)
     end)
 
   print('\tCollect ' .. goal .. ' to exit.')
-  bgm[p.map_name]:play()
+  --bgm[p.map_name]:play()
 end
 
 function state:resume(from, ret_cmds)
-  bgm[self.map_name]:play()
+  --bgm[self.map_name]:play()
 
   -- When the player returns from a state... (probably battle)
   if ret_cmds.success then
@@ -139,7 +138,7 @@ function state:resume(from, ret_cmds)
 
   -- ...move to minigame state
   if ret_cmds.minigame then
-    bgm[self.map_name]:pause()
+    --bgm[self.map_name]:pause()
     gs.push(states.minigame, ret_cmds.minigame)
   end
 
@@ -148,7 +147,11 @@ function state:resume(from, ret_cmds)
     taking_input = false
     sfx.warp:play({volume = 0.5})
     ret_cmds.pop_cmds.from_dungeon = true
-    ti.tween(0.6, cover, {r = 90}, 'linear', function() bgm[self.map_name]:stop() gs.pop(ret_cmds.pop_cmds) end)
+    ti.tween(0.6, cover, {r = 90}, 'linear', 
+      function() 
+        --bgm[self.map_name]:stop() 
+        gs.pop(ret_cmds.pop_cmds) 
+      end)
   end
 end
 
@@ -227,8 +230,7 @@ function state:keypressed(k)
       end
     end
   elseif k == 'x' then
-    cur_plr = (cur_plr % 3) + 1
-    plr:set_char(cur_plr)
+    
   end
 end
 

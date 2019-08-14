@@ -63,22 +63,7 @@ return {
           visible = true,
           properties = {
             ["entry_conv"] = "entryA",
-            ["goal"] = 2
-          }
-        },
-        {
-          id = 2,
-          name = "charlie_bug",
-          type = "Sign",
-          shape = "rectangle",
-          x = 96,
-          y = 32,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["spr_name"] = "bug"
+            ["goal"] = 0
           }
         },
         {
@@ -94,21 +79,6 @@ return {
           visible = true,
           properties = {
             ["spr_name"] = "portal"
-          }
-        },
-        {
-          id = 6,
-          name = "charlie_slime",
-          type = "Sign",
-          shape = "rectangle",
-          x = 24,
-          y = 96,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["spr_name"] = "slime"
           }
         }
       }

@@ -45,48 +45,56 @@ end
 
 scripts.charlie_complete = function()
   spr 'charlieportrait'
-  ret_cmds({to_destroy = {'charlie'}})
+  ret_cmds({to_destroy = {'charlie', 'barrierA'}})
   msg 'thanks, you really helped me'
   msg 'i\'m gonna disappear now'
 end
 
 scripts.grace_complete = function()
   spr 'graceportrait'
-  ret_cmds({to_destroy = {'grace'}})
+  ret_cmds({to_destroy = {'grace', 'barrierB'}})
   msg 'you helped me, nice'
 end
 
 scripts.bryan_complete = function()
   spr 'bryanportrait'
-  ret_cmds({to_destroy = {'bryan'}, to_set_mode = {school_exit = 2}})
+  ret_cmds({to_destroy = {'bryan'}, 
+            to_set_mode = {school_exit = 2},
+            to_activate = {'chasmA', 'chasmB', 'chasmC', 'group'}
+          })
   msg 'thanks, i feel better'
-  msg 'also the game is over'
-  msg 'go to the front door to end the game'
 end
 
-scripts.keyA = function()
-  msg 'found a key'
-end
-
-scripts.doorA1 = function()
+scripts.door = function()
   msg 'locked tight.'
 end
 
-scripts.doorA2 = function()
-  ret_cmds({to_destroy = {'doorA'}})
-  msg 'the lock opens with a soft click.'
+scripts.barrierA = function()
+  msg 'i should talk to that person.'
 end
 
-scripts.doorB = function()
-  msg 'locked'
+scripts.barrierB = function()
+  msg 'is there someone in that room?'
 end
 
-scripts.doorC = function()
-  msg 'locked'
+scripts.chasmB = function()
+  ret_cmds({to_destroy = {'chasmB'}})
+  msg 'talk'
 end
 
-scripts.doorD = function()
-  msg 'locked'
+scripts.chasmA = function()
+  msg 'cant pass'
+end
+
+scripts.chasmC = function()
+  msg 'cant pass'
+end
+
+scripts.group = function()
+  ret_cmds({to_destroy = {'barrierC', 'group'},
+            to_activate = {'bryanfinal', 'charliefinal', 'gracefinal'}})
+  msg 'you did it hooray'
+  msg 'lets go to auditorium'
 end
 
 -- flavor objects
@@ -128,8 +136,6 @@ end
 -- dungeonA (Charlie)
 scripts.entryA = function()
   msg 'Arrived in charlie\'s head'
-  msg 'play (2) minigames'
-  msg 'then leave thru portal'
 end
 
 scripts.exitA1 = function()
@@ -142,23 +148,10 @@ scripts.exitA2 = function()
   msg 'leaving their head'
 end
 
-scripts.charlie_bug = function()
-  ret_cmds({minigame = {'foo', 'bar'}})
-  msg 'sup, i\'m a bug'
-  msg 'i\'m a metaphor for something'
-end
-
-scripts.charlie_slime = function()
-  ret_cmds({minigame = {'foo', 'bar'}})
-  msg 'sup, i\'m a slime'
-  msg 'i, as well, am a metaphor'
-end
 
 -- dungeonB (Grace)
 scripts.entryB = function()
   msg 'Arrived in graces\'s head'
-  msg 'play (3) minigames'
-  msg 'then leave thru portal'
 end
 
 scripts.exitB1 = function()
@@ -171,21 +164,9 @@ scripts.exitB2 = function()
   msg 'leaving her head'
 end
 
-scripts.grace_bandit = function()
-  ret_cmds({minigame = {'foo', 'bar'}})
-  msg 'sup, i\'m a metaphor'
-end
-
-scripts.ice_obstacle = function()
-  msg 'hm, charlie can help with this.'
-end
-
 -- dungeonC (Bryan)
 scripts.entryC = function()
   msg 'Arrived in bryan\'s head'
-  msg 'play (4) minigames'
-  msg 'okay not rly this place is empty'
-  msg 'you can just leave rn'
 end
 
 scripts.exitC1 = function()
@@ -196,10 +177,6 @@ scripts.exitC2 = function()
   ret_cmds({pop_cmds = {conv_name = 'bryan_complete'}})
   msg 'bryan is good to go'
   msg 'leaving his head'
-end
-
-scripts.block_obstacle = function()
-  msg 'hm, grace can help with this.'
 end
 
 

@@ -67,7 +67,7 @@ function state:keypressed(k)
     sfx.select:play({volume=1})
     taking_input = false
     if selection == 1 then
-      ti.tween(5, cover, {o = 1}, 'linear', function() selection_fns[selection]() end)
+      ti.tween(0.5, cover, {o = 1}, 'linear', function() selection_fns[selection]() end) -- use 5
     else
       selection_fns[selection]()
     end

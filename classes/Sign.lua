@@ -14,8 +14,13 @@ function Sign:initialize(p)
     self.spr = nil
   end
 
+  if p.inactive then
+    self.active = false
+  else
+    self.active = true
+  end
+
   -- hard code
-  self.active = true
   self.name = 'Sign'
   self.mode = 1
 end
