@@ -69,7 +69,7 @@ function state:enter(from)
   end -- end create objects
 
   cam.x, cam.y = math.floor((plr.x + 4)/64), math.floor((plr.y + 4)/64)
-  --bgm.overworld:play()
+  bgm.overworld:play()
 end
 
 function state:resume(from, ret_cmds)
@@ -77,7 +77,7 @@ function state:resume(from, ret_cmds)
   -- When the player returns from a state... (probably dungeon)
   if ret_cmds.from_dungeon then
     print('=====\nResumed Overworld')
-    --bgm.overworld:play()
+    bgm.overworld:play()
     -- ...check if it was from a dungeon
     ti.tween(0.6, cover, {r = 0}, 'linear', 
       function()
@@ -129,14 +129,14 @@ function state:resume(from, ret_cmds)
     sfx.warp:play({volume = 0.5})
     ti.tween(0.6, cover, {r = 90}, 'linear', 
       function()
-        --bgm.overworld:pause()
+        bgm.overworld:pause()
         gs.push(states.dungeon, {map_name = ret_cmds.dungeon_name}) 
       end)
   end
 
   -- ...end game
   if ret_cmds.final then
-    --bgm.overworld:stop()
+    bgm.overworld:stop()
     gs.push(states.credits, {final = true}) 
   end
 end

@@ -99,14 +99,10 @@ end
 a8 = require 'libs.anim8'
 an = {}
 char_grid = a8.newGrid(8, 8, 
-                        sprites.char_sheet:getWidth(),
-                        sprites.char_sheet:getHeight())
+                        sprites.player_sheet:getWidth(),
+                        sprites.player_sheet:getHeight())
 an.a_idle = a8.newAnimation(char_grid(1,1), 1)
-an.a_walk = a8.newAnimation(char_grid('2-3',1), 0.3)
-an.b_idle = a8.newAnimation(char_grid(1,2), 1)
-an.b_walk = a8.newAnimation(char_grid('2-3',2), 0.3)
-an.c_idle = a8.newAnimation(char_grid(1,3), 1)
-an.c_walk = a8.newAnimation(char_grid('2-3',3), 0.3)
+an.a_walk = a8.newAnimation(char_grid(1, '2-3'), 0.3)
 
 -- classes
 class = require 'libs.middleclass'

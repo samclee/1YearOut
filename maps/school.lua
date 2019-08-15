@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 9,
-  nextobjectid = 42,
+  nextobjectid = 66,
   properties = {},
   tilesets = {
     {
@@ -55,8 +55,8 @@ return {
           name = "Player",
           type = "",
           shape = "rectangle",
-          x = 88,
-          y = 224,
+          x = 92,
+          y = 240,
           width = 8,
           height = 8,
           rotation = 0,
@@ -97,7 +97,7 @@ return {
           type = "Sign",
           shape = "rectangle",
           x = 24,
-          y = 24,
+          y = 40,
           width = 8,
           height = 8,
           rotation = 0,
@@ -112,7 +112,7 @@ return {
           type = "Sign",
           shape = "rectangle",
           x = 160,
-          y = 96,
+          y = 80,
           width = 8,
           height = 8,
           rotation = 0,
@@ -148,7 +148,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["inactive"] = true
+            ["inactive"] = false
           }
         },
         {
@@ -163,55 +163,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["inactive"] = true
-          }
-        },
-        {
-          id = 30,
-          name = "charliefinal",
-          type = "Sign",
-          shape = "rectangle",
-          x = 40,
-          y = 216,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true,
-            ["spr_name"] = "charlie"
-          }
-        },
-        {
-          id = 31,
-          name = "bryanfinal",
-          type = "Sign",
-          shape = "rectangle",
-          x = 24,
-          y = 224,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true,
-            ["spr_name"] = "bryan"
-          }
-        },
-        {
-          id = 32,
-          name = "gracefinal",
-          type = "Sign",
-          shape = "rectangle",
-          x = 48,
-          y = 232,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true,
-            ["spr_name"] = "grace"
+            ["inactive"] = false
           }
         },
         {
@@ -219,9 +171,9 @@ return {
           name = "chairs2",
           type = "Sign",
           shape = "rectangle",
-          x = 136,
+          x = 104,
           y = 240,
-          width = 48,
+          width = 80,
           height = 8,
           rotation = 0,
           visible = true,
@@ -236,7 +188,7 @@ return {
           shape = "rectangle",
           x = 8,
           y = 240,
-          width = 48,
+          width = 76,
           height = 8,
           rotation = 0,
           visible = true,
@@ -310,7 +262,7 @@ return {
           type = "StepTrigger",
           shape = "rectangle",
           x = 72,
-          y = 144,
+          y = 176,
           width = 48,
           height = 8,
           rotation = 0,
@@ -332,6 +284,276 @@ return {
           visible = true,
           properties = {
             ["inactive"] = true
+          }
+        },
+        {
+          id = 42,
+          name = "counter",
+          type = "Sign",
+          shape = "rectangle",
+          x = 136,
+          y = 72,
+          width = 48,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "counter"
+          }
+        },
+        {
+          id = 43,
+          name = "easelA",
+          type = "Sign",
+          shape = "rectangle",
+          x = 136,
+          y = 80,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "easelA"
+          }
+        },
+        {
+          id = 44,
+          name = "easelB",
+          type = "Sign",
+          shape = "rectangle",
+          x = 176,
+          y = 80,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "easelB"
+          }
+        },
+        {
+          id = 46,
+          name = "sml_house",
+          type = "Sign",
+          shape = "rectangle",
+          x = 176,
+          y = 112,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "sml_house"
+          }
+        },
+        {
+          id = 47,
+          name = "photoA",
+          type = "Sign",
+          shape = "rectangle",
+          x = 176,
+          y = 104,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "photoA"
+          }
+        },
+        {
+          id = 48,
+          name = "photoB",
+          type = "Sign",
+          shape = "rectangle",
+          x = 136,
+          y = 112,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "photoB"
+          }
+        },
+        {
+          id = 49,
+          name = "portA",
+          type = "Sign",
+          shape = "rectangle",
+          x = 152,
+          y = 104,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "portA"
+          }
+        },
+        {
+          id = 51,
+          name = "portB",
+          type = "Sign",
+          shape = "rectangle",
+          x = 152,
+          y = 88,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "portB"
+          }
+        },
+        {
+          id = 54,
+          name = "flyer",
+          type = "Sign",
+          shape = "rectangle",
+          x = 72,
+          y = 168,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "paper_full"
+          }
+        },
+        {
+          id = 55,
+          name = "corkboard",
+          type = "Sign",
+          shape = "rectangle",
+          x = 119,
+          y = 136,
+          width = 8,
+          height = 48,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "corkboard"
+          }
+        },
+        {
+          id = 56,
+          name = "backpack",
+          type = "Sign",
+          shape = "rectangle",
+          x = 110,
+          y = 152,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "backpack"
+          }
+        },
+        {
+          id = 57,
+          name = "boots",
+          type = "Sign",
+          shape = "rectangle",
+          x = 110,
+          y = 144,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "boots"
+          }
+        },
+        {
+          id = 58,
+          name = "trash",
+          type = "Sign",
+          shape = "rectangle",
+          x = 111,
+          y = 176,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "trash"
+          }
+        },
+        {
+          id = 60,
+          name = "computerA",
+          type = "Sign",
+          shape = "rectangle",
+          x = 8,
+          y = 9,
+          width = 24,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "computer"
+          }
+        },
+        {
+          id = 61,
+          name = "computerB",
+          type = "Sign",
+          shape = "rectangle",
+          x = 32,
+          y = 9,
+          width = 24,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "computerchairs"
+          }
+        },
+        {
+          id = 63,
+          name = "chair",
+          type = "Sign",
+          shape = "rectangle",
+          x = 8,
+          y = 24,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "chair"
+          }
+        },
+        {
+          id = 64,
+          name = "error",
+          type = "Sign",
+          shape = "rectangle",
+          x = 10,
+          y = 192,
+          width = 46,
+          height = 22,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "screenerror"
+          }
+        },
+        {
+          id = 65,
+          name = "podium",
+          type = "Sign",
+          shape = "rectangle",
+          x = 88,
+          y = 200,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "podium"
           }
         }
       }

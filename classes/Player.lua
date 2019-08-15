@@ -9,10 +9,10 @@ function Player:initialize(p)
   self.name = 'Player'
   self.facing = {x = -1, y = 0}
   self.look_dir = -1
-  self.spd = 1--0.5
+  self.spd = 0.5--0.5
   self.cur_char = 1
-  self.idle_anims = {an.a_idle, an.b_idle, an.c_idle}
-  self.walk_anims = {an.a_walk, an.b_walk, an.c_walk}
+  self.idle_anims = {an.a_idle, an.a_idle, an.a_idle}
+  self.walk_anims = {an.a_walk, an.a_walk, an.a_walk}
   self.cur_anim = self.idle_anims[1]
   self.moving = false
 
@@ -36,7 +36,7 @@ end
 
 function Player:draw()
   lg.setColor(1,1,1)
-  self.cur_anim:draw(sprites.char_sheet, 
+  self.cur_anim:draw(sprites.player_sheet, 
                                       math.floor(self.x)+4, math.floor(self.y)+4,
                                       0,-self.look_dir,1,4,4)
   --[[lg.setColor(0,1,0)

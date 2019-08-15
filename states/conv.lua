@@ -7,7 +7,7 @@ local spr = nil
 
 function state:enter(from, script_name)
   self.from = from
-  --print('Entered conv: \'' .. script_name .. '\'')
+  print('Entered conv: \'' .. script_name .. '\'')
   script = scripts[script_name]
   spr = nil
 
@@ -16,6 +16,21 @@ function state:enter(from, script_name)
       'spr',
       'ret_cmds',
       'shk'
+    })
+    :addPreset('alex', {
+      spr = 'alexportrait'
+    })
+    :addPreset('charlie', {
+      spr = 'charlieportrait'
+    })
+    :addPreset('grace', {
+      spr = 'graceportrait'
+    })
+    :addPreset('bryan', {
+      spr = 'bryanportrait'
+    })
+    :addPreset('m', {
+      spr = 'none'
     })
 
   self.ret_cmds = {}
@@ -38,8 +53,10 @@ function state:interpret_pkg(pkg)
   end
 
   -- set portraits
-  if pkg.spr then
+  if pkg.spr and pkg.spr ~= 'none' then
     spr = sprites[pkg.spr]
+  else
+    spr = nil
   end
 
   -- set shake

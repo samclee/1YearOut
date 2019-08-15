@@ -10,11 +10,11 @@ scripts.door = function()
 end
 
 scripts.barrierA = function()
-  msg 'i should talk to that person.'
+  alex 'i should talk to that person.'
 end
 
 scripts.barrierB = function()
-  msg 'is there someone in that room?'
+  alex 'is there someone in that room?'
 end
 
 scripts.heart = function()
@@ -28,8 +28,8 @@ scripts.school_entry = function()
 end
 
 scripts.school_exit1 = function()
-  msg '...'
-  msg 'i\'m not done here.'
+  alex '...'
+  alex 'i\'m not done here.'
 end
 
 scripts.school_exit2 = function()
@@ -87,19 +87,103 @@ scripts.screen = function()
   msg 'cuts off the rest of the year.'
 end
 
+scripts.error = function()
+  m 'A broken screen.'
+  m 'it\'s too broken to read.'
+end
+
+scripts.podium = function()
+  m 'a podium for giving a speech.'
+  m 'it\'s covered with blank sheets with'
+  m 'the title \"GRADUATION SPEECH\"'
+  m 'followed by nothing else.'
+  m 'check the shelf under the podium?'
+
+  option 'yes'
+  option 'no'
+  menu 'not seen'
+  if selection 'yes' then
+    msg 'there are a couple of blank diplomas.'
+  end
+end
+
+-- hallway
+scripts.corkboard = function()
+  msg 'a corkboard covered in photos.'
+  msg 'all of them feature a happy charlie'
+  msg 'surrounded by friends.'
+  msg 'the backgrounds vary from a hectic campus'
+  msg 'to serene forest scenery.'
+end
+
+scripts.flyer = function()
+  msg 'a stack of flyers.'
+  msg 'some promote different club events.'
+  msg 'others are calls to action for social issues.'
+end
+
+scripts.trash = function()
+  msg 'Crumpled pieces of paper lay scattered.'
+  msg 'pick up and smooth out a page?'
+  option 'yes'
+  option 'no'
+  menu 'not seen'
+  if selection 'yes' then
+    msg 'The page is a club sign-up sheet,'
+    msg 'with columns for names and emails.'
+    msg 'Every entry has been crossed out and'
+    msg 'scribbled on, to the point where you'
+    msg 'can\'t decipher the words.'
+  end
+
+end
+
+scripts.backpack = function()
+  msg 'a backpack containg a hefty textbook.'
+  msg 'several sticky notes are haphazardly'
+  msg 'stuck on the cover.'
+  msg 'read the stick notes?'
+
+  option 'yes'
+  option 'no'
+  menu 'a'
+  if selection 'yes' then
+    msg 'they\'re all club deadline reminders,'
+    msg 'written in a looping and carefree'
+    msg 'script.'
+  end
+
+  msg 'flip through the textbook?'
+  option 'yes'
+  option 'no'
+  menu 'a'
+  if selection 'yes' then
+    msg 'with a quick glance at the table of '
+    msg 'contents, you notice that the chapters'
+    msg 'discuss topics like culture and society.'
+  end
+end
+
+scripts.boots = function()
+  msg 'well-worn hiking boots, clearly the'
+  msg 'bearers of many good memories.'
+  msg 'the owner seems to maintain the boots to the'
+  msg 'best of their ability.'
+end
+
 -- dungeonA (Charlie)
 scripts.charlie1 = function()
-  spr 'charlieportrait'
   ret_cmds({dungeon_name = 'dungeonA'})
-  msg 'i am charlie'
-  msg 'going to my mindscape'
+  charlie 'i am charlie'
+  alex 'sup'
+  charlie 'going to my mindscape'
 end
 
 scripts.entryA = function()
   msg 'Arrived in charlie\'s head'
-  spr 'charlieportrait'
-  msg 'details abt myself'
-  msg 'okay go inspect now'
+
+  charlie 'details abt myself'
+  charlie 'okay go inspect now'
 end
 
 scripts.exitA1 = function()
@@ -113,10 +197,9 @@ scripts.exitA2 = function()
 end
 
 scripts.charlie_complete = function()
-  spr 'charlieportrait'
   ret_cmds({to_destroy = {'charlie', 'barrierA'}})
-  msg 'thanks, you really helped me'
-  msg 'i\'m gonna disappear now'
+  charlie 'thanks, you really helped me'
+  charlie 'i\'m gonna disappear now'
 end
 
 scripts.charlieA = function()
@@ -139,19 +222,57 @@ scripts.charlieD = function()
   msg 'seen 4'
 end
 
+-- roomB
+scripts.counter = function()
+  msg 'Various paint supplies are strewn over the'
+  msg 'countertop.'
+  msg 'the artist probably curses her messiness,'
+  msg 'but never bothers to organize.'
+end
+
+scripts.easelA = function()
+  msg 'experimental paintings of varying completion.'
+  msg 'paint splashes across the canvas in'
+  msg 'colors you never could have imagined.'
+end
+
+scripts.easelB = function()
+  msg 'experimental paintings of varying completion.'
+  msg 'while each painting is unique, a unifying theme of frustration emerges.'
+end
+
+scripts.photoA = function()
+  msg 'a photograph of a woman dancing.'
+end
+
+scripts.photoB = function()
+  msg 'a photograph of an aged man.'
+end
+
+scripts.portA = function()
+  msg 'an abstract painting of a woman.'
+  msg 'a self-portrait maybe?'
+end
+
+scripts.portB = function()
+  msg 'an abstract painting of a woman.'
+  msg 'is that her over there?'
+end
+
+scripts.sml_house = function()
+  msg 'a small clay house'
+end
 
 -- dungeonB (Grace)
 scripts.grace1 = function()
-  spr 'graceportrait'
   ret_cmds({dungeon_name = 'dungeonB'})
-  msg 'i am grace'
-  msg 'going to my mindscape'
+  grace 'i am grace'
+  grace 'going to my mindscape'
 end
 
 scripts.entryB = function()
-  spr 'graceportrait'
-  msg 'details abt myself'
-  msg 'okay go inspect now'
+  grace 'details abt myself'
+  grace 'okay go inspect now'
 end
 
 scripts.exitB1 = function()
@@ -165,23 +286,20 @@ scripts.exitB2 = function()
 end
 
 scripts.grace_complete = function()
-  spr 'graceportrait'
   ret_cmds({to_destroy = {'grace', 'barrierB'}})
-  msg 'you helped me, nice'
+  grace 'you helped me, nice'
 end
 
 -- dungeonC (Bryan)
 scripts.bryan1 = function()
-  spr 'bryanportrait'
   ret_cmds({dungeon_name = 'dungeonC'})
-  msg 'i am bryan'
-  msg 'going to my mindscape'
+  bryan 'i am bryan'
+  bryan 'going to my mindscape'
 end
 
 scripts.entryC = function()
-  spr 'bryanportrait'
-  msg 'details abt myself'
-  msg 'okay go inspect now'
+  bryan 'details abt myself'
+  bryan 'okay go inspect now'
 end
 
 scripts.exitC1 = function()
@@ -195,50 +313,57 @@ scripts.exitC2 = function()
 end
 
 scripts.bryan_complete = function()
-  spr 'bryanportrait'
   ret_cmds({to_destroy = {'bryan'}, 
             to_set_mode = {school_exit = 2},
             to_activate = {'TriggerA', 'TriggerB', 'TriggerC'}
           })
-  msg 'thanks, i feel better'
+  bryan 'thanks, i feel better'
 end
 
 -- dungeonD (Alex)
 scripts.TriggerA = function()
-  msg 'i...'
-  msg 'i feel weird.'
+  alex 'i...'
+  alex 'i feel weird.'
 end
 
 scripts.TriggerB = function()
-  msg 'what\'s going on with me?'
+  alex 'what\'s going on with me?'
 end
 
 scripts.TriggerC = function()
   ret_cmds({dungeon_name = 'dungeonD'})
-  msg 'argh!'
-  msg 'my head!'
-  msg 'i\'m going to...'
+  alex 'argh!'
+  alex 'my head!'
+  alex 'i\'m going to...'
 
 end
 
 scripts.entryD = function()
-  msg 'what the...'
-  msg 'where am i?'
+  alex 'what the...'
+  alex 'where am i?'
 end
 
 scripts.chasm = function()
-  ret_cmds({to_destroy = {'chasm'}})
-  msg 'trapped...'
-  msg 'alone...'
+  ret_cmds({to_destroy = {'chasm'}, conv_name = 'successD'})
+  alex 'trapped...'
+  alex 'alone...'
+  alex 'minigame will go here'
+end
+
+scripts.successD = function()
+  charlie 'friend'
+  grace 'friend'
+  bryan 'friend'
+  alex 'hooray i can cross'
 end
 
 scripts.exitD = function()
   ret_cmds({pop_cmds = {conv_name = 'alex_complete'}})
-  msg 'i\'m good now.'
+  alex 'time 2 go home'
 end
 
 scripts.alex_complete = function()
-  msg 'made it out yey.'
+  alex 'made it out yey.'
 end
 
 
