@@ -83,7 +83,7 @@ return {
         },
         {
           id = 8,
-          name = "charlieA",
+          name = "charlie_trophy",
           type = "Sign",
           shape = "rectangle",
           x = 96,
@@ -98,7 +98,7 @@ return {
         },
         {
           id = 9,
-          name = "charlieD",
+          name = "charlie_notebookA",
           type = "Sign",
           shape = "rectangle",
           x = 32,
@@ -113,7 +113,7 @@ return {
         },
         {
           id = 10,
-          name = "charlieB",
+          name = "charlie_photos",
           type = "Sign",
           shape = "rectangle",
           x = 104,
@@ -128,7 +128,7 @@ return {
         },
         {
           id = 11,
-          name = "charlieC",
+          name = "charlie_notebookB",
           type = "Sign",
           shape = "rectangle",
           x = 8,

@@ -119,7 +119,8 @@ end
 scripts.flyer = function()
   msg 'a stack of flyers.'
   msg 'some promote different club events.'
-  msg 'others are calls to action for social issues.'
+  msg 'others are calls to action for social'
+  msg 'issues.'
 end
 
 scripts.trash = function()
@@ -202,25 +203,63 @@ scripts.charlie_complete = function()
   charlie 'i\'m gonna disappear now'
 end
 
-scripts.charlieA = function()
+scripts.charlie_trophy = function()
   ret_cmds({seen = 1})
-  msg 'seen 1'
+  msg 'Plastic trophies encased in'
+  m 'thick ice.'
+  msg 'You can barely make out the words'
+  msg '\"Participation Award\" engraved onto them.'
 end
 
-scripts.charlieB = function()
+scripts.charlie_photos = function()
   ret_cmds({seen = 2})
-  msg 'seen 2'
+  m 'three strips of photos from a photobooth.'
+  m 'each features charlie with a group of'
+  m 'smiling teens.'
+  m 'charlie is clearly not happy though.'
 end
 
-scripts.charlieC = function()
+scripts.charlie_notebookA = function()
   ret_cmds({seen = 3})
-  msg 'seen 3'
+  m 'a notebook, frozen solid.'
+  m 'read the pages?'
+
+  option 'yes'
+  option 'no'
+  menu 'a'
+  if selection 'yes' then
+    m 'each passage is a diary entry counting down.'
+    m '\"87 days til i can leave.\"'
+    m '\"86 days til i can leave.\"'
+  else
+    m 'you think that would be an invasion'
+    m 'of privacy.'
+    m 'you look away'
+  end
 end
 
-scripts.charlieD = function()
+scripts.charlie_notebookB = function()
   ret_cmds({seen = 4})
-  msg 'seen 4'
+  m 'a notebook, frozen solid.'
+  m 'read the pages?'
+
+  option 'yes'
+  option 'no'
+  menu 'a'
+  if selection 'yes' then
+    m 'each passage is a diary entry.'
+    m '\"i can\'t stand being home.\"'
+    m '\"i always run into people from high'
+    m 'school that used to treat me like-\"'
+    m 'the rest is cut off by a crack in the ice.'
+  else
+    m 'you think that would be an invasion'
+    m 'of privacy.'
+    m 'you look away'
+  end
 end
+
+
 
 -- roomB
 scripts.counter = function()
@@ -231,14 +270,17 @@ scripts.counter = function()
 end
 
 scripts.easelA = function()
-  msg 'experimental paintings of varying completion.'
+  msg 'experimental paintings of varying'
+  msg 'completion.'
   msg 'paint splashes across the canvas in'
   msg 'colors you never could have imagined.'
 end
 
 scripts.easelB = function()
-  msg 'experimental paintings of varying completion.'
-  msg 'while each painting is unique, a unifying theme of frustration emerges.'
+  msg 'experimental paintings of varying'
+  msg 'completion.'
+  msg 'while each painting is unique, a'
+  msg 'unifying theme of frustration emerges.'
 end
 
 scripts.photoA = function()
@@ -304,6 +346,26 @@ end
 
 scripts.exitC1 = function()
   msg 'bryan\'s still got some stuff'
+end
+
+scripts.bryan_laptop = function()
+  ret_cmds({seen = 1})
+  m 'bleg' 
+end
+
+scripts.bryan_banner = function()
+  ret_cmds({seen = 2})
+  m 'bleg' 
+end
+
+scripts.bryan_plant = function()
+  ret_cmds({seen = 3})
+  m 'bleg' 
+end
+
+scripts.bryan_tools = function()
+  ret_cmds({seen = 4})
+  m 'bleg' 
 end
 
 scripts.exitC2 = function()

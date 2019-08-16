@@ -20,7 +20,7 @@ function state:enter(from, p)-- visuals
 
   y = 32
   credits_txt = [[
-game name
+anteromachia
 
 
 
