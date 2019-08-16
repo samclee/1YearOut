@@ -321,6 +321,31 @@ scripts.exitB1 = function()
   msg 'grace\'s still got some stuff'
 end
 
+scripts.grace_artA = function()
+  ret_cmds({seen = 1})
+  m 'b'
+end
+
+scripts.grace_artB = function()
+  ret_cmds({seen = 2})
+  m 'b'
+end
+
+scripts.grace_artC = function()
+  ret_cmds({seen = 3})
+  m 'b'
+end
+
+scripts.grace_artD = function()
+  ret_cmds({seen = 4})
+  m 'b'
+end
+
+scripts.grace_artE = function()
+  ret_cmds({seen = 5})
+  m 'b'
+end
+
 scripts.exitB2 = function()
   ret_cmds({pop_cmds = {conv_name = 'grace_complete'}})
   msg 'grace is good to go'

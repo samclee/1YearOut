@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="24" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="22">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="24" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="27">
  <tileset firstgid="1" name="dungeon_set" tilewidth="8" tileheight="8" tilecount="40" columns="8">
   <image source="../sprites/dungeon_set.png" width="64" height="40"/>
  </tileset>
@@ -7,12 +7,37 @@
   <object id="1" name="Player" x="96" y="24" width="8" height="8">
    <properties>
     <property name="entry_conv" value="entryB"/>
-    <property name="goal" type="int" value="0"/>
+    <property name="goal" type="int" value="5"/>
    </properties>
   </object>
-  <object id="3" name="exitB" type="Exit" x="72" y="40" width="8" height="8">
+  <object id="3" name="exitB" type="Exit" x="24" y="160" width="8" height="8">
    <properties>
     <property name="spr_name" value="portal"/>
+   </properties>
+  </object>
+  <object id="22" name="grace_artA" type="Sign" x="88" y="88" width="8" height="8">
+   <properties>
+    <property name="spr_name" value="block"/>
+   </properties>
+  </object>
+  <object id="23" name="grace_artB" type="Sign" x="152" y="112" width="8" height="8">
+   <properties>
+    <property name="spr_name" value="block"/>
+   </properties>
+  </object>
+  <object id="24" name="grace_artC" type="Sign" x="8" y="88" width="8" height="8">
+   <properties>
+    <property name="spr_name" value="block"/>
+   </properties>
+  </object>
+  <object id="25" name="grace_artD" type="Sign" x="40" y="104" width="8" height="8">
+   <properties>
+    <property name="spr_name" value="block"/>
+   </properties>
+  </object>
+  <object id="26" name="grace_artE" type="Sign" x="168" y="80" width="8" height="8">
+   <properties>
+    <property name="spr_name" value="block"/>
    </properties>
   </object>
  </objectgroup>

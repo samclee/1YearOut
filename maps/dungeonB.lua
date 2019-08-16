@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 8,
-  nextobjectid = 22,
+  nextobjectid = 27,
   properties = {},
   tilesets = {
     {
@@ -63,7 +63,7 @@ return {
           visible = true,
           properties = {
             ["entry_conv"] = "entryB",
-            ["goal"] = 0
+            ["goal"] = 5
           }
         },
         {
@@ -71,14 +71,89 @@ return {
           name = "exitB",
           type = "Exit",
           shape = "rectangle",
-          x = 72,
-          y = 40,
+          x = 24,
+          y = 160,
           width = 8,
           height = 8,
           rotation = 0,
           visible = true,
           properties = {
             ["spr_name"] = "portal"
+          }
+        },
+        {
+          id = 22,
+          name = "grace_artA",
+          type = "Sign",
+          shape = "rectangle",
+          x = 88,
+          y = 88,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "block"
+          }
+        },
+        {
+          id = 23,
+          name = "grace_artB",
+          type = "Sign",
+          shape = "rectangle",
+          x = 152,
+          y = 112,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "block"
+          }
+        },
+        {
+          id = 24,
+          name = "grace_artC",
+          type = "Sign",
+          shape = "rectangle",
+          x = 8,
+          y = 88,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "block"
+          }
+        },
+        {
+          id = 25,
+          name = "grace_artD",
+          type = "Sign",
+          shape = "rectangle",
+          x = 40,
+          y = 104,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "block"
+          }
+        },
+        {
+          id = 26,
+          name = "grace_artE",
+          type = "Sign",
+          shape = "rectangle",
+          x = 168,
+          y = 80,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "block"
           }
         }
       }
