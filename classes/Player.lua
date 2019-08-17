@@ -39,9 +39,6 @@ function Player:draw()
   self.cur_anim:draw(sprites.player_sheet, 
                                       math.floor(self.x)+4, math.floor(self.y)+4,
                                       0,-self.look_dir,1,4,4)
-  --[[lg.setColor(0,1,0)
-  lg.points(self.x + 4 + self.facing.x * 10, self.y + 4 + self.facing.y * 10)
-  lg.setColor(1,1,1)]]
 end
 
 function Player:set_char(n)

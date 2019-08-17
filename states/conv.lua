@@ -119,6 +119,8 @@ function state:keypressed(k)
       text_box.cur_msg = text_box.msg
     end
   end
+
+  if k == 'i' then gs.pop(self.ret_cmds) end
 end
 
 return state

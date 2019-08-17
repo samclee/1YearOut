@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 9,
-  nextobjectid = 68,
+  nextobjectid = 73,
   properties = {},
   tilesets = {
     {
@@ -55,8 +55,8 @@ return {
           name = "Player",
           type = "",
           shape = "rectangle",
-          x = 152,
-          y = 80,
+          x = 92,
+          y = 224,
           width = 8,
           height = 8,
           rotation = 0,
@@ -247,37 +247,7 @@ return {
           type = "StepTrigger",
           shape = "rectangle",
           x = 72,
-          y = 48,
-          width = 48,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true
-          }
-        },
-        {
-          id = 40,
-          name = "TriggerC",
-          type = "StepTrigger",
-          shape = "rectangle",
-          x = 72,
-          y = 176,
-          width = 48,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["inactive"] = true
-          }
-        },
-        {
-          id = 41,
-          name = "TriggerB",
-          type = "StepTrigger",
-          shape = "rectangle",
-          x = 72,
-          y = 88,
+          y = 160,
           width = 48,
           height = 8,
           rotation = 0,
@@ -569,6 +539,86 @@ return {
           visible = true,
           properties = {
             ["spr_name"] = "printer"
+          }
+        },
+        {
+          id = 68,
+          name = "gracenote",
+          type = "Sign",
+          shape = "rectangle",
+          x = 160,
+          y = 80,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true,
+            ["spr_name"] = "paper_headline"
+          }
+        },
+        {
+          id = 69,
+          name = "charlienote",
+          type = "Sign",
+          shape = "rectangle",
+          x = 80,
+          y = 152,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true,
+            ["spr_name"] = "paper_headline"
+          }
+        },
+        {
+          id = 70,
+          name = "gracefinal",
+          type = "Sign",
+          shape = "rectangle",
+          x = 112,
+          y = 216,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true,
+            ["spr_name"] = "grace"
+          }
+        },
+        {
+          id = 71,
+          name = "bryanfinal",
+          type = "Sign",
+          shape = "rectangle",
+          x = 72,
+          y = 216,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true,
+            ["spr_name"] = "bryan"
+          }
+        },
+        {
+          id = 72,
+          name = "charliefinal",
+          type = "Sign",
+          shape = "rectangle",
+          x = 80,
+          y = 232,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true,
+            ["spr_name"] = "charlie"
           }
         }
       }

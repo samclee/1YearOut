@@ -20,7 +20,7 @@ function state:enter(from, p)-- visuals
 
   y = 32
   credits_txt = [[
-anteromachia
+1 year out
 
 
 
@@ -29,23 +29,24 @@ anteromachia
 
 
 Design
-  name
+  sam lee
+  jonny hopkins
 
 Writing
-  name
-  name
+  violet elder
+  kelly weng
 
 Programming
-  name
-  name
+  sam lee
+  jonny hopkins
 
 Art
-  name
-  name
+  erica
+    cherrington
+  angie ta
 
 Music
-  name
-  name]]
+   birch]]
 
 
   lg.setFont(f.sml)

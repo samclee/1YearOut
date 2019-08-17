@@ -57,7 +57,8 @@ function state:enter(from, p)
       local new_sign = Sign:new({x = obj.x, y = obj.y, 
                                   w = obj.width, h = obj.height, 
                                   conv_names = conv_names,
-                                  spr_name = spr_name
+                                  spr_name = spr_name,
+                                  inactive = obj.properties.inactive
                                 })
       objs[tn] = new_sign
       self.wld:add(objs[tn], objs[tn].x, objs[tn].y, objs[tn].w, objs[tn].h)
@@ -149,6 +150,14 @@ function state:resume(from, ret_cmds)
     for _,name in pairs(ret_cmds.to_destroy) do
       print('Will call destroy from ' .. name)
       objs[name]:set_active(false)
+    end
+  end
+
+  -- ...activate listed objs
+  if ret_cmds.to_activate then
+    for _,name in pairs(ret_cmds.to_activate) do
+      objs[name]:set_active(true)
+      print('\tactivated: \'' .. name .. '\'')
     end
   end
 
@@ -272,8 +281,6 @@ function state:keypressed(k)
         break
       end
     end
-  elseif k == 'x' then
-    
   end
 end
 

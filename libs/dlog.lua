@@ -4,7 +4,7 @@ local lg = love.graphics
 dlog.__index = dlog
 
 dlog.drawBg = function(self) 
-	lg.setColor(0,0,0)
+	lg.setColor(0,0,0, 0.75)
 	lg.rectangle('fill',self.x, self.y, self.w, self.h)
   lg.setColor(1,1,1)
 end
@@ -14,9 +14,9 @@ dlog.drawChoices = function(self)
   local m1, m2 = self.choices[1], self.choices[2]
 
   if self.cur_choice == 1 then
-    m1 = '*' .. m1
+    m1 = '>' .. m1
   elseif self.cur_choice == 2 then
-    m2 = '*' .. m2
+    m2 = '>' .. m2
   end
 
   lg.printf(m1, self.x + 1, self.y + 1, 620, 'left', 0, 0.1, 0.1)

@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 7,
-  nextobjectid = 5,
+  nextobjectid = 7,
   properties = {},
   tilesets = {
     {
@@ -58,7 +58,7 @@ return {
           x = 8,
           y = 200,
           width = 48,
-          height = 40,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {}
@@ -86,12 +86,28 @@ return {
           type = "StepTrigger",
           shape = "rectangle",
           x = 0,
-          y = 256,
+          y = 224,
           width = 64,
           height = 8,
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 5,
+          name = "standing",
+          type = "Sign",
+          shape = "rectangle",
+          x = 8,
+          y = 232,
+          width = 24,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["inactive"] = true,
+            ["spr_name"] = "standing"
+          }
         }
       }
     },
@@ -190,8 +206,8 @@ return {
         0, 35, 35, 35, 35, 35, 35, 0,
         0, 35, 35, 35, 35, 35, 35, 0,
         0, 35, 35, 35, 35, 35, 35, 0,
-        0, 35, 35, 35, 35, 35, 35, 0,
-        0, 35, 35, 35, 35, 35, 35, 0,
+        0, 36, 36, 36, 36, 36, 36, 0,
+        0, 36, 36, 36, 36, 36, 36, 0,
         0, 36, 36, 36, 36, 36, 36, 0,
         0, 36, 36, 36, 36, 36, 36, 0,
         0, 0, 0, 0, 0, 0, 0, 0

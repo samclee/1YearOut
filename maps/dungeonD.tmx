@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="8" height="33" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="5">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="8" height="33" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="7">
  <tileset firstgid="1" name="dungeon_set" tilewidth="8" tileheight="8" tilecount="40" columns="8">
   <image source="../sprites/dungeon_set.png" width="64" height="40"/>
  </tileset>
  <objectgroup id="4" name="myobjects">
-  <object id="1" name="chasm" type="Sign" x="8" y="200" width="48" height="40"/>
+  <object id="1" name="chasm" type="Sign" x="8" y="200" width="48" height="8"/>
   <object id="3" name="Player" x="28" y="24" width="8" height="8">
    <properties>
     <property name="entry_conv" value="entryD"/>
@@ -12,7 +12,13 @@
     <property name="music_off" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="4" name="exitD" type="StepTrigger" x="0" y="256" width="64" height="8"/>
+  <object id="4" name="exitD" type="StepTrigger" x="0" y="216" width="64" height="8"/>
+  <object id="5" name="standing" type="Sign" x="8" y="224" width="24" height="8">
+   <properties>
+    <property name="inactive" type="bool" value="true"/>
+    <property name="spr_name" value="standing"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer id="5" name="walls" width="8" height="33">
   <properties>
@@ -83,9 +89,9 @@
 0,36,36,36,36,36,36,0,
 0,35,35,35,35,35,35,0,
 0,35,35,35,35,35,35,0,
-0,35,35,35,35,35,35,0,
-0,35,35,35,35,35,35,0,
-0,35,35,35,35,35,35,0,
+0,36,36,36,36,36,36,0,
+0,36,36,36,36,36,36,0,
+0,36,36,36,36,36,36,0,
 0,36,36,36,36,36,36,0,
 0,36,36,36,36,36,36,0,
 0,0,0,0,0,0,0,0
