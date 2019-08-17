@@ -137,6 +137,12 @@ function state:resume(from, ret_cmds)
       end
       taking_input = true 
     end)
+
+  else
+      -- ...start a conversation
+    if ret_cmds.conv_name then
+      gs.push(states.conv, ret_cmds.conv_name)
+    end
   end
 
   if ret_cmds.seen then
@@ -167,11 +173,6 @@ function state:resume(from, ret_cmds)
       print('Will set ' .. name .. ' to mode ' .. mode)
       objs[name]:set_mode(mode)
     end
-  end
-
-  -- ...start a conversation
-  if ret_cmds.conv_name then
-    gs.push(states.conv, ret_cmds.conv_name)
   end
 
   -- ...move to minigame state

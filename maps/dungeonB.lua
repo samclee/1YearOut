@@ -63,7 +63,7 @@ return {
           visible = true,
           properties = {
             ["entry_conv"] = "entryB",
-            ["goal"] = 5
+            ["goal"] = 0
           }
         },
         {

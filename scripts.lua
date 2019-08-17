@@ -292,7 +292,7 @@ end
 
 scripts.exitA2 = function()
   ret_cmds({minigame = {level = 1, str = 'exitA3'}})
-  msg 'to be replaced.'
+  msg 'to charlie minigame.'
 end
 
 scripts.exitA3 = function()
@@ -302,7 +302,7 @@ end
 
 scripts.charlie_complete = function()
   ret_cmds({to_destroy = {'charlie', 'barrierA'}, to_activate ={'charlienote'}})
-  grace 'huh, a note.'
+  alex 'huh, a note.'
 end
 
 scripts.charlienote = function()
