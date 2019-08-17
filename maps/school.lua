@@ -523,7 +523,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "podium"
+            ["spr_name"] = "podiumfront"
           }
         },
         {

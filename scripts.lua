@@ -827,7 +827,7 @@ alex'it\'s okay, i\'m scared too.'
 end
 
 scripts.exitC1 = function()
-  msg 'bryan\'s still got some stuff'
+  alex'i can\'t leave just yet.'
 end
 
 scripts.bryan_laptop = function()

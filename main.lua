@@ -120,7 +120,7 @@ Ero = require 'libs.erogodic'()
 -- gamestates
 gs = require 'libs.gamestate'
 s = {}
-statenames = {'title', 'overworld', 'conv', 'dungeon', 'minigame', 'credits', 'pregame'}
+statenames = {'title', 'overworld', 'conv', 'dungeon', 'minigame', 'credits', 'pregame', 'cw'}
 for _,n in pairs(statenames) do
   s[n] = require ('states.'.. n)
 end
@@ -165,7 +165,7 @@ function love.load()
   lg.setLineStyle('rough')
 
   gs.registerEvents()
-  gs.switch(s.title)
+  gs.switch(s.cw)
 end
 
 function love.update(dt)

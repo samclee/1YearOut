@@ -153,7 +153,7 @@
   </object>
   <object id="65" name="podium" type="Sign" x="88" y="200" width="16" height="16">
    <properties>
-    <property name="spr_name" value="podium"/>
+    <property name="spr_name" value="podiumfront"/>
    </properties>
   </object>
   <object id="66" name="printer" type="Sign" x="48" y="40" width="8" height="16">

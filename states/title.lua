@@ -38,6 +38,9 @@ end
 function state:draw()
 love.graphics.setCanvas(cnv)
 love.graphics.clear()
+  lg.setColor(pal[2])
+  prt('1 year out',13, 10)
+
   
   lg.setColor(pal[4])
   lg.print('start\ncredits\nexit', base_x, base_y, 0, 0.1, 0.1)
