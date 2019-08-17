@@ -47,7 +47,7 @@ function state:enter(from, p)
       end
 
       entry_conv = obj.properties.entry_conv
-      music_on = false--not obj.properties.music_off
+      music_on = not obj.properties.music_off
     -- Sign obj
     elseif obj.type == 'Sign' then
       local tn = obj.name

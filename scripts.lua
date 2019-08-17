@@ -38,12 +38,13 @@ end
 
 scripts.school_exit2 = function()
   ret_cmds({final = true})
-  msg 'you beat the game'
-  msg 'go to credits here'
+alex'this...'
+alex'has been a long day.'
+
 end
 scripts.chairs =  function()
-m'most of the seats are empty, but some hold'
-m'noisemakers and posters.'
+m'most of the seats are empty, but some'
+m'hold noisemakers and posters.'
   msg 'check poster?'
   option 'yes'
   option 'no'
@@ -292,12 +293,21 @@ end
 
 scripts.exitA2 = function()
   ret_cmds({minigame = {level = 1, str = 'exitA3'}})
-  msg 'to charlie minigame.'
+alex'i think i get what charlie\'s feeling.'
+alex'like i\'m able to reach their <red>heart<white>.'
 end
 
 scripts.exitA3 = function()
   ret_cmds({pop_cmds = {conv_name = 'charlie_complete'}})
-  msg 'to be replaced.'
+alex'i think i get it.'
+alex'you were never happy here.'
+alex'college meant moving on'
+alex'but being back here...'
+alex'it\'s like time stopped again.'
+alex'that\'s what you mean by <blue>frozen<white>.'
+charlie'yes! exactly!'
+charlie'you get it!'
+charlie'god i\'m glad you understand!'
 end
 
 scripts.charlie_complete = function()
@@ -640,12 +650,21 @@ end
 
 scripts.exitB2 = function()
   ret_cmds({minigame = {level = 2, str = 'exitB3'}})
-  msg 'to charlie minigame.'
+alex'right, grace has told me all about her work.'
+alex'time to reach her <red>heart<white>.'
 end
 
 scripts.exitB3 = function()
   ret_cmds({pop_cmds = {conv_name = 'grace_complete'}})
-  msg 'to be replaced'
+alex'no <green>energy><white> to create...'
+alex'but creating make makes you happy...'
+alex'that\'s a vicious cycle.'
+grace'yeah. i just...'
+grace'i just want my dad to be happy.'
+grace'how can anyone afford to be happy in'
+grace'this capitalist hellscape though.'
+grace'ugh, thanks for talking with me.'
+grace'i feel a bit better.'
 end
 
 scripts.gracenote = function()
@@ -836,10 +855,6 @@ bryan'i\'m just scared.'
 alex'it\'s okay, i\'m scared too.'
 end
 
-scripts.exitC1 = function()
-  alex'i can\'t leave just yet.'
-end
-
 scripts.bryan_laptop = function()
   ret_cmds({seen = 1})
 m'an open laptop.'
@@ -877,15 +892,29 @@ m'they were looked after lovingly and'
 m'diligently.' 
 end
 
+scripts.exitC1 = function()
+  alex'i can\'t leave just yet.'
+end
+
 scripts.exitC2 = function()
   ret_cmds({minigame = {level = 3, str = 'exitC3'}})
-  msg 'to charlie minigame.'
+  alex 'alright, let\'s do this.'
+  alex'let\'s reach bryan\'s <red>heart<white>.'
 end
 
 scripts.exitC3 = function()
   ret_cmds({pop_cmds = {conv_name = 'bryan_complete'}})
-  msg 'bryan is good to go'
-  msg 'leaving his head'
+alex'you\'re...'
+alex'used to structure, huh.'
+alex'problems with solutions.'
+alex'but you also know the world\'s'
+alex'problems don\'t have easy fixes.'
+alex'and that\'s causing you to <red>panic<white>, right?'
+bryan'argh, exactly!'
+bryan'why am i the only one freaking out?'
+bryan'how can people just stand by?'
+bryan'at least i know you care though.'
+bryan'that\'s actually a big comfort.'
 end
 
 scripts.bryan_complete = function()
@@ -903,7 +932,7 @@ scripts.TriggerA = function()
   ret_cmds({dungeon_name = 'dungeonD'})
   alex '......'
   alex'.............'
-  alex '................!'
+  alex '....................!'
 
 end
 
@@ -931,7 +960,6 @@ scripts.chasm = function()
   alex'this side...'
   m'.......'
   alex'god it\'s so quiet here....'
-  m'jump to minigame'
 end
 
 scripts.successD = function()
@@ -993,7 +1021,6 @@ end
 scripts.alex_complete = function()
   ret_cmds({to_activate = {'charliefinal', 'gracefinal', 'bryanfinal'}})
   alex '.......'
-  alex'guess i\'m done.'
 end
 
 scripts.charliefinal = function()

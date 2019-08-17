@@ -38,8 +38,9 @@ end
 function state:draw()
 love.graphics.setCanvas(cnv)
 love.graphics.clear()
-  lg.setColor(pal[2])
-  prt('1 year out',13, 10)
+  lg.setColor(1,1,1)
+  --prt('1 year out',13, 10)
+  lg.draw(sprites.logo, 6,6)
 
   
   lg.setColor(pal[4])
@@ -68,7 +69,7 @@ function state:keypressed(k)
     sfx.select:play({volume=1})
     taking_input = false
     if selection == 1 then
-      ti.tween(0.5, cover, {o = 1}, 'linear', function() selection_fns[selection]() end) -- use 5
+      ti.tween(5, cover, {o = 1}, 'linear', function() selection_fns[selection]() end) -- use 5
     else
       selection_fns[selection]()
     end

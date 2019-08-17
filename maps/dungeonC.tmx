@@ -7,7 +7,7 @@
   <object id="1" name="Player" x="32" y="24" width="8" height="8">
    <properties>
     <property name="entry_conv" value="entryC"/>
-    <property name="goal" type="int" value="0"/>
+    <property name="goal" type="int" value="4"/>
    </properties>
   </object>
   <object id="2" name="exitC" type="Exit" x="104" y="96" width="8" height="8">

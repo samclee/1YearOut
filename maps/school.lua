@@ -148,7 +148,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["inactive"] = true
+            ["inactive"] = false
           }
         },
         {
@@ -163,7 +163,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["inactive"] = true
+            ["inactive"] = false
           }
         },
         {
