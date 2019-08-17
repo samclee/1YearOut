@@ -74,36 +74,21 @@ love.graphics.line(2,50,62,50)
 
 love.graphics.setColor(1.0,1.0,1.0)
 
-if(move_dir == 1) then
-rot_front = math.rad(90)
-lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4, 0.0, 8.0 )
-end
-
-if(move_dir == 0) then
-rot_front = math.rad(270)
-lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4, 8.0, 0.0 )
-end
-
-if(move_dir == 2) then
-rot_front = 0.0
-lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4 )
-end
-
-if(move_dir == 3) then
-rot_front = math.rad(180)
-lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4 , 8.0, 8.0)
-end
-
-
 --spr(spr_num,p.x-3, p.y-3, 1.0,1.0,flp_y, flp_x)
 
 for i =1,5 do
 	for j = 1, 5 do
 	x = board[i][j]
+		if(x == 0) then
+			new_j = ((j-1) * 12) +2
+			new_i = ((i-1)*12)+2	
+		lg.draw(sprites["panel_bg"],((j-1) * 12) +2,((i-1)*12)+2, 0, 1.4, 1.4)
+		end
+		
 		if(x == 1) then
 			new_j = ((j-1) * 12) +2
 			new_i = ((i-1)*12)+2	
-			love.graphics.rectangle("fill",new_j, new_i, 12, 12)
+		lg.draw(sprites["block"],((j-1) * 12) +2,((i-1)*12)+2, 0, 1.4, 1.4)
 				
 		end	
 		if(x ==2) then
@@ -139,6 +124,30 @@ for i =1,5 do
 		
 	end
 end
+
+	
+	lg.draw(sprites["heart"],((final_x-1) * 12) +2,((final_y-1)*12)+2, 0, 1.4, 1.4)
+				
+if(move_dir == 1) then
+rot_front = math.rad(90)
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4, 0.0, 8.0 )
+end
+
+if(move_dir == 0) then
+rot_front = math.rad(270)
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4, 8.0, 0.0 )
+end
+
+if(move_dir == 2) then
+rot_front = 0.0
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4 )
+end
+
+if(move_dir == 3) then
+rot_front = math.rad(180)
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4 , 8.0, 8.0)
+end
+
 
 lg.setCanvas()
 lg.draw(cnv, 0, 0, 0, 10, 10)
