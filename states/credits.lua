@@ -15,7 +15,7 @@ function state:enter(from, p)-- visuals
   moving = false
   cover = {o = 1}
 
-  --bgm.credits:play()
+  bgm.credits:play()
 
 
   y = 32
