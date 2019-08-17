@@ -267,6 +267,7 @@ function state:keypressed(k)
 	
 	if can_move then
 		if(k == 'left') then
+      sfx.plant:play()
 			can_move = false
 			move_dir = 0
 			move_timer = 0
@@ -274,6 +275,7 @@ function state:keypressed(k)
 				p.x=p.x-12
 			end
 		elseif(k == 'right') then
+      sfx.plant:play()
 			can_move = false
 			move_dir = 1
 			move_timer = 0
@@ -281,6 +283,7 @@ function state:keypressed(k)
 				p.x=p.x+12
 			end
 		elseif(k == 'up') then
+      sfx.plant:play()
 			can_move = false
 			move_dir = 2
 			move_timer = 0
@@ -288,6 +291,7 @@ function state:keypressed(k)
 				p.y=p.y-12
 			end
 		elseif(k == 'down') then
+      sfx.plant:play()
 			can_move = false
 			move_dir = 3
 			move_timer = 0

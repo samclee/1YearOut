@@ -80,7 +80,7 @@ sfx = {
   warp = rpl.newSound(sounds.powerup16),
   menu = rpl.newSound(sounds.move1),
   select = rpl.newSound(sounds.interaction13),
-
+  plant = rpl.newSound(sounds.impact7),
 }
 
 bgm = {
