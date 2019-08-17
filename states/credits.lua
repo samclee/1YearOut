@@ -87,6 +87,7 @@ end
 
 function state:keypressed(k)
   if not moving and y < -162.31 then
+    bgm.credits:stop()
     gs.switch(s.title)
   end
 end
