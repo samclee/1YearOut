@@ -291,6 +291,11 @@ scripts.exitA1 = function()
 end
 
 scripts.exitA2 = function()
+  ret_cmds({minigame = {level = 1, str = 'exitA3'}})
+  msg 'to be replaced.'
+end
+
+scripts.exitA3 = function()
   ret_cmds({pop_cmds = {conv_name = 'charlie_complete'}})
   msg 'to be replaced.'
 end
