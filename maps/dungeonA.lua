@@ -88,8 +88,8 @@ return {
           shape = "rectangle",
           x = 104,
           y = 104,
-          width = 8,
-          height = 8,
+          width = 10,
+          height = 12,
           rotation = 0,
           visible = true,
           properties = {

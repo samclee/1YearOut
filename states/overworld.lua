@@ -165,7 +165,7 @@ love.graphics.clear()
 
   lg.pop()
 
-  circfill(32,32,cover.r,pal[4])
+  circfill(32,32,cover.r,pal[3])
 
 love.graphics.setCanvas()
 love.graphics.draw(cnv, 0, 0, 0, 10, 10)

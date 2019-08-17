@@ -93,7 +93,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "easelA"
           }
         },
         {
@@ -108,7 +108,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "easelB"
           }
         },
         {
@@ -123,27 +123,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "photoB"
           }
         },
         {
           id = 25,
           name = "grace_artD",
-          type = "Sign",
-          shape = "rectangle",
-          x = 40,
-          y = 104,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["spr_name"] = "block"
-          }
-        },
-        {
-          id = 26,
-          name = "grace_artE",
           type = "Sign",
           shape = "rectangle",
           x = 168,
@@ -153,7 +138,22 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "photoA"
+          }
+        },
+        {
+          id = 26,
+          name = "grace_artE",
+          type = "Sign",
+          shape = "rectangle",
+          x = 40,
+          y = 104,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "sml_house"
           }
         }
       }

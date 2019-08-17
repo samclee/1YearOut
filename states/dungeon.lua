@@ -6,7 +6,7 @@ local cnv = nil
 local cam = {lerping = false, x = 0, y = 0}
 
 local goal = {}
-local cover = {r = 90, clr = pal[4]}
+local cover = {r = 90, clr = pal[3]}
 local taking_input = true
 
 local plr = nil
@@ -182,7 +182,7 @@ function state:resume(from, ret_cmds)
     taking_input = false
     sfx.warp:play({volume = 0.5})
     ret_cmds.pop_cmds.from_dungeon = true
-    cover.clr = pal[4]
+    cover.clr = pal[3]
     ti.tween(0.6, cover, {r = 90}, 'linear', 
       function() 
         if music_on then bgm[self.map_name]:stop()  end

@@ -101,7 +101,7 @@ return {
           shape = "rectangle",
           x = 104,
           y = 40,
-          width = 8,
+          width = 13,
           height = 8,
           rotation = 0,
           visible = true,

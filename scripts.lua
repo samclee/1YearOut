@@ -24,7 +24,11 @@ end
 
 -- auditorium
 scripts.school_entry = function()
-  msg 'there are people that need help.'
+m'there are people that need help.'
+m'and i can help them.'
+m'when i feel high <purple>empathy<white>,'
+m'my <purple>power<white> activates.'
+m'well, class is in session.'
 end
 
 scripts.school_exit1 = function()
@@ -206,14 +210,15 @@ scripts.charlie_trophy = function()
   ret_cmds({seen = 1})
   msg 'Plastic trophies encased in'
   m 'thick ice.'
+  msg ''
   msg 'You can barely make out the words'
   msg '\"Participation Award\" engraved onto them.'
 end
 
 scripts.charlie_photos = function()
   ret_cmds({seen = 2})
-m'a frozen corkboard covered with photos from a'
-m'photobooth.'
+m'a frozen corkboard covered with'
+m'photos from a photobooth.'
 m'each features charlie with a group of'
 m'smiling teens.'
 m'charlie is clearly not happy though.'
@@ -334,11 +339,10 @@ grace 'tired. like i was sleep-walking'
 grace 'and couldn\'t wake up.'
 grace 'i was a few months from graduating'
 grace 'and everything felt like it was passing'
-grace 'at a snail\'s pace, but also impossibly'
-grace 'fast. time was all i talked about in'
+grace 'slowly, but also impossibly fast.'
+grace 'time was all i talked about in'
 grace 'therapy for a couple months.'
-grace 'sometimes on the weekends, when i couldn\'t'
-grace 'get out of bed i would grab a'
+grace 'when i couldn\'t get out of bed i would grab a'
 grace 'canvas and tubes of paint, only the ones'
 grace 'within reach, and slowly add one or two'
 grace 'brush strokes.'
@@ -351,18 +355,16 @@ scripts.grace_artB = function()
   ret_cmds({seen = 2})
 m'a painting radiating energy.'
 m'a flurry of red, orange, and yellow'
-m'streaks creating a fiery-looking'
-m'figure.'
+m'streaks creating a fiery figure.'
 m'a crimson streak obscures the face, but'
 m'you can tell it\'s grace.'
 m'the strokes and colors feel powerful, but'
-m'she is sitting, hunched over.'
-m'she looks like she\'s cowering.'
+m'she is sitting hunched over, cowering.'
 grace'i made that one a couple years ago.'
 grace'i was in a really bad place. i felt'
 grace'like i was about to explode. i kept'
-grace'saying that to people, but everyone just'
-grace'looked scared and didn\'t know what to say.'
+grace'telling people, but they just looked scared'
+grace'and didn\'t know what to say.'
 grace'eventually somebody said that they just'
 grace'didn\'t understand what i meant.'
 grace'i made this to try to explain it.'
@@ -372,17 +374,73 @@ end
 
 scripts.grace_artC = function()
   ret_cmds({seen = 3})
-m 'b'
+m'a large photograph of a kind-looking'
+m'older man, sitting with his hands'
+m'clasped and smiling.'
+m'he looks understanding, and a bit sad.'
+m'his expression conveys absolute love.'
+grace 'that\'s my dad.'
+grace 'i did a while series of photos of him'
+grace 'freshman year.'
+grace 'it\'s so weird looking back at them.'
+grace 'he looks so different.'
+grace 'he\'s stressed and tired all the time now.'
+grace 'i hid these when i moved back home.'
+grace 'i had them out at first, but one day i'
+grace 'saw him just standing and staring at one.'
+grace 'he looked really sad.'
+grace'i packed them all away after that.'
 end
 
 scripts.grace_artD = function()
   ret_cmds({seen = 4})
-m 'b'
+m'a photo of Grace wearing a bright neon'
+m'yellow-green jumpsuit in front of a'
+m'hot pink backdrop.'
+m'the frame is reflective.'
+m'her whole body is blurred and you can see'
+m'her trail of movement. though her face'
+m'is fuzzy, you can tell she\'s smiling.'
+grace 'that was from junior year.'
+grace 'my therapist asked me to find activities'
+grace 'that made me happy, so i pulled down'
+grace'the brightest backdrops in the photo lab'
+grace 'and started running and hopping and'
+grace'skipping in front of them.'
+grace'the color and movement was just...fun.'
+grace'i took a picture for my therapist and'
+grace'ended up liking how it turned out.'
+grace'i was happy to see myself happy.'
+grace'that\'s why the mirrored frame is there,'
+grace'so i can see myself smile when i look at'
+grace'it.'
+grace'now when i look at it, i\'m just...tired.'
 end
 
 scripts.grace_artE = function()
   ret_cmds({seen = 5})
-m 'b'
+m'a small ceramic sculpture of a house.'
+m'inside, what looks like a small, pressed'
+m'purple flower sits in the center of'
+m'the house\'s floor.'
+grace'a house i made after my dad lost his job,'
+grace'when i realized i would moving back home,'
+grace'at least for a while.'
+grace'i was having trouble imaging what it would'
+grace'feel like to be back there again.'
+grace'i love my home and i went back to visit'
+grace'all the time in college, but it\'s not'
+grace'the same as living there.'
+grace'it was going to be strange moving back,'
+grace'so...i tried to visualize what it'
+grace'would be like.'
+grace'the flower\'s called a \"heart\'s ease\".'
+grace'i definitely felt like my heart could'
+grace'use some ease.'
+grace'so the flower is a kind of wish, i guess.'
+grace 'i didn\'t tell anybody though.'
+grace'it wasn\'t made for anyone else anyway.'
+
 end
 
 scripts.exitB2 = function()

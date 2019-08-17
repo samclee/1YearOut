@@ -33,13 +33,6 @@ function tbl_len(T)
 end
 vec = require 'libs.vector'
 
-clrs = {
-        red = {1, 0, 0},
-        green = {0, 1, 0},
-        blue = {0, 0, 1},
-        white = {1, 1, 1},
-      }
-
 local function hexToDec(h)
   local clr = {}
   for i = 2, 6, 2 do
@@ -61,6 +54,14 @@ pal = {
 for i = 1, #pal do
   pal[i] = hexToDec(pal[i])
 end
+
+clrs = {
+        red = {1, 0, 0},
+        green = {0, 1, 0},
+        blue = {0, 0, 1},
+        white = {1, 1, 1},
+        purple = pal[3]
+      }
 
 -- collisions
 bump = require 'libs.bump'
