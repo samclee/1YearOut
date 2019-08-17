@@ -639,6 +639,11 @@ scripts.exitB1 = function()
 end
 
 scripts.exitB2 = function()
+  ret_cmds({minigame = {level = 2, str = 'exitB3'}})
+  msg 'to charlie minigame.'
+end
+
+scripts.exitB3 = function()
   ret_cmds({pop_cmds = {conv_name = 'grace_complete'}})
   msg 'to be replaced'
 end
@@ -873,6 +878,11 @@ m'diligently.'
 end
 
 scripts.exitC2 = function()
+  ret_cmds({minigame = {level = 3, str = 'exitC3'}})
+  msg 'to charlie minigame.'
+end
+
+scripts.exitC3 = function()
   ret_cmds({pop_cmds = {conv_name = 'bryan_complete'}})
   msg 'bryan is good to go'
   msg 'leaving his head'
@@ -914,7 +924,7 @@ scripts.entryD = function()
 end
 
 scripts.chasm = function()
-  ret_cmds({to_destroy = {'chasm'}, conv_name = 'successD'})
+  ret_cmds({to_destroy = {'chasm'},minigame = {level = 4, str = 'successD'} })
   alex 'if i had just been a little faster,'
   alex'or left when bryan did,'
   alex'maybe i wouldn\'t be stuck on'

@@ -41,6 +41,11 @@ function state:enter(from, config)
   --print_tbl(config)
   -- ...or in here with 'self.'
   bgm.minigame:play()
+  p.x =8
+  p.y = 56
+  can_move = true
+  move_dir = 2
+  start_win = false 
 end
 
 
@@ -192,8 +197,38 @@ if move_dir == 0 then
 	
 end
 end
+function reset()
+if(b == 1) then
+  board = {{0,0,0,0,1},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}, {0,0,0,1,0}}
+  final_x = 4
+  final_y = 1
+  elseif(b==2) then
+  final_x = 3
+  final_y = 1
+  board = {{0,1,0,0,0},{0,0,0,0,0},{0,0,0,0,1},{1,0,0,0,0}, {0,0,0,0,0}}
+  elseif(b==3) then
+  final_x = 4
+  final_y = 2
+  board = {{0,0,0,1,0},{0,0,0,0,0},{0,0,0,0,1},{0,0,0,0,0}, {0,0,0,0,0}}
+  elseif(b==4) then
+  final_x = 3
+  final_y = 3
+  board = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}, {0,0,0,0,0}}
+  end
+  --print_tbl(config)
+  -- ...or in here with 'self.'
+  p.x =8
+  p.y = 56
+  can_move = true
+  move_dir = 2
+end
 
 function state:keypressed(k)
+	
+	if(k == 'z') then
+	reset()
+	end
+	
 	if can_move then
 		if(k == 'left') then
 			can_move = false
