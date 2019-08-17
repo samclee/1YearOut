@@ -13,6 +13,7 @@ local final_y = 0
 local flp_x = false
 local flp_y = false
 local rot_front = 0.0
+local cur_sprite = 'plant_start'
 -- game vars can go up here with 'local'
 local cnv = nil
 
@@ -46,6 +47,7 @@ function state:enter(from, config)
   can_move = true
   move_dir = 2
   start_win = false 
+   cur_sprite = 'plant_start'
 end
 
 
@@ -53,8 +55,10 @@ end
 function state:draw()
 lg.setCanvas(cnv)
 lg.clear()
-
+lg.setColor(0,0,0)
+love.graphics.rectangle('fill',0,0,64,64)
 -- game drawing goes here
+love.graphics.setColor(171/255,123/255,120/255)
 love.graphics.line(2,2,62,2)
 love.graphics.line(2,62,62,62)
 love.graphics.line(2,2,2,62)
@@ -68,25 +72,26 @@ love.graphics.line(2,26,62,26)
 love.graphics.line(2,38,62,38)
 love.graphics.line(2,50,62,50)
 
+love.graphics.setColor(1.0,1.0,1.0)
 
 if(move_dir == 1) then
 rot_front = math.rad(90)
-lg.draw(sprites["plant"],p.x-6,p.y-6, rot_front, 1.4, 1.4, 0.0, 8.0 )
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4, 0.0, 8.0 )
 end
 
 if(move_dir == 0) then
 rot_front = math.rad(270)
-lg.draw(sprites["plant"],p.x-6,p.y-6, rot_front, 1.4, 1.4, 8.0, 0.0 )
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4, 8.0, 0.0 )
 end
 
 if(move_dir == 2) then
 rot_front = 0.0
-lg.draw(sprites["plant"],p.x-6,p.y-6, rot_front, 1.4, 1.4 )
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4 )
 end
 
 if(move_dir == 3) then
 rot_front = math.rad(180)
-lg.draw(sprites["plant"],p.x-6,p.y-6, rot_front, 1.4, 1.4 , 8.0, 8.0)
+lg.draw(sprites[cur_sprite],p.x-6,p.y-6, rot_front, 1.4, 1.4 , 8.0, 8.0)
 end
 
 
@@ -143,54 +148,75 @@ function state:update(dt)
 
 if(start_win)then
 
+if(win_timer >= 120) then
 bgm.minigame:stop()
 gs.pop({success = true, conv_name = exit_conv})
 
+elseif(win_timer % 30 == 0)then
+	if(cur_sprite == "plant")then 
+	cur_sprite = "plant_2"
+	else
+	cur_sprite = "plant"
+	end
+	win_timer = win_timer + 1
+else
+win_timer = win_timer + 1
 end
 
-if(math.floor(((p.y -6) /12) +1) == final_y and math.floor((p.x - 6) /12 +1) == final_x) then
+
+elseif(math.floor(((p.y -6) /12) +1) == final_y and math.floor((p.x - 6) /12 +1) == final_x) then
 
 	if(empty_grid()) then
 	--enter win state
 	
 	start_win = true
 	win_timer = 0
+	move_dir = 2
+	cur_sprite = "plant"
 	end
 
 end
 -- game update goes here
 if not(can_move) then
 	if move_dir == 1 then
-		if(move_timer >= 20 and move_check()) then
+		if(move_check()) then
+		if(move_timer >= 20) then
 		p.x = p.x+ 12
 		move_timer = 0
 		end
 		move_timer =move_timer+ 1
+		end
 	end
 
 if move_dir == 0 then
-		if(move_timer >=20 and move_check()) then
+		if(move_check())then
+		if(move_timer >=20) then
 		p.x =p.x- 12
 		move_timer = 0
 		end
 		move_timer =move_timer+ 1
+		end
 	end
 	
 	if move_dir == 2 then
-		if(move_timer >=20 and move_check()) then
+		if(move_check())then
+		if(move_timer >=20) then
 		p.y =p.y- 12
 		move_timer = 0
 		end
 		move_timer =move_timer+ 1
+		end
 	end
 	
 	
 		if move_dir == 3 then
-		if(move_timer >=20 and move_check()) then
+		if(move_check())then
+		if(move_timer >=20) then
 		p.y =p.y+ 12
 		move_timer = 0
 		end
 		move_timer =move_timer+ 1
+		end
 	end
 	
 	
@@ -221,6 +247,7 @@ if(b == 1) then
   p.y = 56
   can_move = true
   move_dir = 2
+  cur_sprite = "plant_start"
 end
 
 function state:keypressed(k)
