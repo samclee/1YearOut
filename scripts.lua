@@ -38,21 +38,21 @@ scripts.school_exit2 = function()
   msg 'go to credits here'
 end
 scripts.chairs =  function()
-  msg 'most of the seats are empty.'
-  msg 'some hold noisemakers and posters.'
+m'most of the seats are empty, but some hold'
+m'noisemakers and posters.'
   msg 'check poster?'
   option 'yes'
   option 'no'
   menu 'not seen'
   if selection 'yes' then
-    msg 'the posters display generic messages like'
+    msg 'they display generic messages like'
     msg '\"Congrats!\", or \"You made it!\"'
   end
 end
 
 scripts.chairs2 = function()
-  msg 'some graduation caps sit neatly on the chairs,'
-  msg 'waiting for their owners to return.'
+m'some graduation caps sit neatly on the chairs,'
+m'waiting for their owners to return.'
   msg 'look closer?'
   option 'yes'
   option 'no'
@@ -74,17 +74,16 @@ scripts.airhorn = function()
 end
 
 scripts.cap = function()
-  msg 'a cap lies on the ground.'
-  msg 'likely abandoned after everyone'
-  msg 'tossed their caps into the air.'
+m'a cap lies on the ground, abandoned after'
+m'being tossed into the air'
 end
 
 scripts.screen = function()
   msg 'The projection on the wall flickers.'
-  msg 'In bold letter it reads'
-  msg '\"CONGRATS CLASS OF 20--.\"'
-  msg 'A large crack in the projector lens'
-  msg 'cuts off the rest of the year.'
+m'In bold letter it reads'
+m'\"CONGRATS CLASS OF 20--.\"'
+m'A large crack in the projector lens'
+m'cuts off the rest of the year.'
 end
 
 scripts.error = function()
@@ -94,9 +93,9 @@ end
 
 scripts.podium = function()
   m 'a podium for giving a speech.'
-  m 'it\'s covered with blank sheets with'
-  m 'the title \"GRADUATION SPEECH\"'
-  m 'followed by nothing else.'
+m'it\'s covered with blank sheets that'
+m 'read \"GRADUATION SPEECH\"'
+m'followed by nothing else.'
   m 'check the shelf under the podium?'
 
   option 'yes'
@@ -109,11 +108,11 @@ end
 
 -- hallway
 scripts.corkboard = function()
-  msg 'a corkboard covered in photos.'
-  msg 'all of them feature a happy charlie'
-  msg 'surrounded by friends.'
-  msg 'the backgrounds vary from a hectic campus'
-  msg 'to serene forest scenery.'
+m'a corkboard covered in photos.'
+m'all of them feature a happy charlie'
+m'surrounded by friends.'
+m'the backgrounds vary from a hectic campus'
+m'to serene forest scenery.'
 end
 
 scripts.flyer = function()
@@ -213,10 +212,11 @@ end
 
 scripts.charlie_photos = function()
   ret_cmds({seen = 2})
-  m 'three strips of photos from a photobooth.'
-  m 'each features charlie with a group of'
-  m 'smiling teens.'
-  m 'charlie is clearly not happy though.'
+m'a frozen corkboard covered with photos from a'
+m'photobooth.'
+m'each features charlie with a group of'
+m'smiling teens.'
+m'charlie is clearly not happy though.'
 end
 
 scripts.charlie_notebookA = function()
@@ -265,8 +265,8 @@ end
 scripts.counter = function()
   msg 'Various paint supplies are strewn over the'
   msg 'countertop.'
-  msg 'the artist probably curses her messiness,'
-  msg 'but never bothers to organize.'
+m'the artist probably curses her messiness'
+m'but never bothers to organize.'
 end
 
 scripts.easelA = function()
@@ -323,27 +323,66 @@ end
 
 scripts.grace_artA = function()
   ret_cmds({seen = 1})
-  m 'b'
+m'a painting made up of broad strokes of'
+m'blues, whites, and purples.'
+m'though it\'s abstract, you can'
+m'immediately tell it\'s Grace.'
+m'something about the confidence in the body.'
+grace 'i painted that last spring.'
+grace'it was bright and warm, but i was so...'
+grace 'tired. like i was sleep-walking'
+grace 'and couldn\'t wake up.'
+grace 'i was a few months from graduating'
+grace 'and everything felt like it was passing'
+grace 'at a snail\'s pace, but also impossibly'
+grace 'fast. time was all i talked about in'
+grace 'therapy for a couple months.'
+grace 'sometimes on the weekends, when i couldn\'t'
+grace 'get out of bed i would grab a'
+grace 'canvas and tubes of paint, only the ones'
+grace 'within reach, and slowly add one or two'
+grace 'brush strokes.'
+grace 'doing something really, really slow helped'
+grace 'me feel grounded, and i would be able'
+grace 'to get up, take a shower, and make some food.'
 end
 
 scripts.grace_artB = function()
   ret_cmds({seen = 2})
-  m 'b'
+m'a painting radiating energy.'
+m'a flurry of red, orange, and yellow'
+m'streaks creating a fiery-looking'
+m'figure.'
+m'a crimson streak obscures the face, but'
+m'you can tell it\'s grace.'
+m'the strokes and colors feel powerful, but'
+m'she is sitting, hunched over.'
+m'she looks like she\'s cowering.'
+grace'i made that one a couple years ago.'
+grace'i was in a really bad place. i felt'
+grace'like i was about to explode. i kept'
+grace'saying that to people, but everyone just'
+grace'looked scared and didn\'t know what to say.'
+grace'eventually somebody said that they just'
+grace'didn\'t understand what i meant.'
+grace'i made this to try to explain it.'
+grace'my friends helped me find a therapist'
+grace'after that.'
 end
 
 scripts.grace_artC = function()
   ret_cmds({seen = 3})
-  m 'b'
+m 'b'
 end
 
 scripts.grace_artD = function()
   ret_cmds({seen = 4})
-  m 'b'
+m 'b'
 end
 
 scripts.grace_artE = function()
   ret_cmds({seen = 5})
-  m 'b'
+m 'b'
 end
 
 scripts.exitB2 = function()
@@ -355,6 +394,71 @@ end
 scripts.grace_complete = function()
   ret_cmds({to_destroy = {'grace', 'barrierB'}})
   grace 'you helped me, nice'
+end
+
+-- roomC
+scripts.computerA = function()
+m'cold, blue computer screens,'
+m'inspect a screen?'
+
+option 'yes'
+option 'no'
+menu 'a'
+if selection 'yes' then
+  m'the screen shows lines of code.'
+  m'you have no idea what it means,'
+  m'much less what it does.'
+end
+end
+
+scripts.computerB = function()
+m'cold, blue computer screens,'
+m'inspect a screen?'
+end
+
+scripts.chair = function()
+m'a backpack on a chair.'
+m'the backpack looks spotless and brand-new.'
+m'look inside?'
+option 'yes'
+option 'no'
+menu 'a'
+if selection 'yes' then
+  m'you find class notes, neatly written'
+  m'and organized.'
+  m'no pages were left empty.'
+end
+end
+
+scripts.printer = function()
+m'an expensive printer.'
+m'press the print button?'
+
+option 'yes'
+option 'no'
+menu 'a'
+  if selection 'yes' then
+  m'the printer groans to life.'
+  m'it slowly beings to cough out a'
+  m'piece of paper.'
+  m'wait for the paper?'
+
+  option 'yes'
+  option 'no'
+  menu 'a'
+  if selection 'yes' then
+    m'after an eternity, the full page'
+    m'emerges.'
+    m'in bold text it proclaims'
+    m'\"the world is dying\"'
+    m'followed by smaller text'
+    m'\"we are its inheritors.\"'
+  else
+    m'you back away.'
+    m'the lights sputter and die, but not'
+    m'before the paper crumbles to ash.'
+  end
+  end
 end
 
 -- dungeonC (Bryan)
@@ -375,22 +479,39 @@ end
 
 scripts.bryan_laptop = function()
   ret_cmds({seen = 1})
-  m 'bleg' 
+m'an open laptop.'
+m'the browser has at least 3 dozen tabs.'
+m'each is a different story about'
+m'an ecological disaster and the companies' 
+m'behind them.'
+m'reading them makes you want to close'
+m'the laptop.'
 end
 
 scripts.bryan_banner = function()
   ret_cmds({seen = 2})
-  m 'bleg' 
+m 'a large banner.'
+m'under it is a picture of an older bryan.'
+m'his hair is snowy white, but a'
+m'fashionable pink choker peeks out'
+m'from his collar.'
+m'he looks tired.' 
 end
 
-scripts.bryan_plant = function()
+scripts.bryan_plantA = function()
   ret_cmds({seen = 3})
-  m 'bleg' 
+m 'a long-dead potted plant.'
+m'it dried out years ago, and you can\'t even'
+m'tell what it used to be.' 
 end
 
-scripts.bryan_tools = function()
+scripts.bryan_plantB = function()
   ret_cmds({seen = 4})
-  m 'bleg' 
+m'a long-dead potted plant.'
+m'several tools are carefully placed nearby.'
+m'you can tell that, when they were alive,'
+m'they were looked after lovingly and'
+m'diligently.' 
 end
 
 scripts.exitC2 = function()

@@ -106,12 +106,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "bryanlaptop"
           }
         },
         {
           id = 5,
-          name = "bryan_plant",
+          name = "bryan_plantA",
           type = "Sign",
           shape = "rectangle",
           x = 8,
@@ -121,12 +121,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "deadplant1"
           }
         },
         {
           id = 6,
-          name = "bryan_tools",
+          name = "bryan_plantB",
           type = "Sign",
           shape = "rectangle",
           x = 16,
@@ -136,7 +136,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "deadplant2"
           }
         }
       }

@@ -94,10 +94,6 @@ function state:resume(from, ret_cmds)
     end
   end
 
-  if ret_cmds.max_chars then
-    max_chars = ret_cmds.max_chars
-  end
-
   -- When the player returns from a state... (probably conversation)
   -- ...deactivate listed objs
   if ret_cmds.to_destroy then

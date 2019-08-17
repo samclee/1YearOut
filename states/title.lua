@@ -51,18 +51,16 @@ love.graphics.setCanvas()
 love.graphics.draw(cnv, 0, 0, 0, 10, 10)
 end
 
-function state:update(dt)
-
-end
-
 function state:keypressed(k)
   if not taking_input then return end
   if k == 'up' then
+    local old = selection
     selection = math.max(selection-1, 1)
-    sfx.menu:play({volume=1})
+    if selection ~= old then sfx.menu:play({volume=1}) end
   elseif k == 'down' then
+    local old = selection
     selection = math.min(selection+1, 3)
-    sfx.menu:play({volume=1})
+    if selection ~= old then sfx.menu:play({volume=1}) end
   elseif k == 'z' then
     sfx.select:play({volume=1})
     taking_input = false

@@ -9,7 +9,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 9,
-  nextobjectid = 66,
+  nextobjectid = 68,
   properties = {},
   tilesets = {
     {
@@ -55,8 +55,8 @@ return {
           name = "Player",
           type = "",
           shape = "rectangle",
-          x = 92,
-          y = 240,
+          x = 152,
+          y = 80,
           width = 8,
           height = 8,
           rotation = 0,
@@ -96,7 +96,7 @@ return {
           name = "bryan",
           type = "Sign",
           shape = "rectangle",
-          x = 24,
+          x = 16,
           y = 40,
           width = 8,
           height = 8,
@@ -396,8 +396,8 @@ return {
           name = "portB",
           type = "Sign",
           shape = "rectangle",
-          x = 152,
-          y = 88,
+          x = 160,
+          y = 96,
           width = 8,
           height = 8,
           rotation = 0,
@@ -523,7 +523,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "chair"
+            ["spr_name"] = "chairbackpack"
           }
         },
         {
@@ -554,6 +554,21 @@ return {
           visible = true,
           properties = {
             ["spr_name"] = "podium"
+          }
+        },
+        {
+          id = 66,
+          name = "printer",
+          type = "Sign",
+          shape = "rectangle",
+          x = 48,
+          y = 40,
+          width = 8,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["spr_name"] = "printer"
           }
         }
       }

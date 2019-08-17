@@ -86,14 +86,14 @@ return {
           name = "charlie_trophy",
           type = "Sign",
           shape = "rectangle",
-          x = 96,
-          y = 24,
+          x = 104,
+          y = 104,
           width = 8,
           height = 8,
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "frozentrophy2"
           }
         },
         {
@@ -108,7 +108,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "frozencomp2"
           }
         },
         {
@@ -116,14 +116,14 @@ return {
           name = "charlie_photos",
           type = "Sign",
           shape = "rectangle",
-          x = 104,
-          y = 80,
-          width = 8,
-          height = 8,
+          x = 88,
+          y = 8,
+          width = 18,
+          height = 12,
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "frozencorkboard"
           }
         },
         {
@@ -138,7 +138,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["spr_name"] = "block"
+            ["spr_name"] = "frozencomp1"
           }
         }
       }
